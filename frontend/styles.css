@@ -1,0 +1,86 @@
+/* GLOBAL COLORS */
+:root {
+  --obsidian: #0a0a0a;
+  --gunmetal: #1a1a1a;
+  --carbon: #2a2a2a;
+  --tactical-red: #e50914;
+  --steel-white: #f5f5f5;
+  --muted-gray: #b3b3b3;
+}
+
+/* GLOBAL RESET */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--obsidian);
+  color: var(--steel-white);
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: var(--gunmetal);
+  border-bottom: 2px solid var(--tactical-red);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: var(--steel-white);
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+  border-bottom: 2px solid var(--tactical-red);
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 450px;
+  background: url('frontend/assets/milisaka-app-bg.png') center/cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: var(--muted-gray);
+  margin-bottom: 25px;
+}
+
+.btn-primary {
+  background: var(--tactical-red);
+}
