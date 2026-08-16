@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Richard Grayson',
       role: 'CHIEF INFORMATION OFFICER',
       img: 'https://media.base44.com/images/public/6a5a7ba5b70e888ca3c0ccdd/307ccc017_GraysonCIO.jpg',
-      bio: 'As CIO, Richard Grayson oversees Milisaka\'s technology infrastructure and cybersecurity architecture, ensuring every product meets the rigorous demands of defense and enterprise environments.',
+      bio: "As CIO, Richard Grayson oversees Milisaka's technology infrastructure and cybersecurity architecture, ensuring every product meets the rigorous demands of defense and enterprise environments.",
     },
   ];
   document.getElementById('leadership-grid').innerHTML = leaders
