@@ -1,4 +1,5 @@
 /* global scrambleText, productCardHTML, wireAddToCartButtons, api */
+
 // Home page logic.
 document.addEventListener('DOMContentLoaded', async () => {
   // Scramble hero text
@@ -58,4 +59,39 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch {
     grid.innerHTML = '<p class="text-muted font-mono text-center" style="grid-column:1/-1;padding:3rem">UNABLE TO LOAD PRODUCTS — IS THE SERVER RUNNING?</p>';
   }
+});
+
+/* ---------------------------------------------------------
+   NEW ADDITIONS BELOW THIS LINE
+--------------------------------------------------------- */
+
+// Scroll fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
+    }
+  });
+}, { threshold: 0.2 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("section").forEach((section) => {
+    observer.observe(section);
+  });
+});
+
+// Parallax hero movement
+document.addEventListener("scroll", () => {
+  const hero = document.querySelector(".hero-section");
+  if (!hero) return;
+
+  const offset = window.scrollY * 0.25;
+  hero.style.backgroundPositionY = `calc(50% + ${offset}px)`;
+});
+
+// Tactical scanline overlay
+document.addEventListener("DOMContentLoaded", () => {
+  const scanline = document.createElement("div");
+  scanline.className = "scanline-overlay";
+  document.body.appendChild(scanline);
 });

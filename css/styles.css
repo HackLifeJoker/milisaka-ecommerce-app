@@ -1,0 +1,344 @@
+/* ---------------------------------------------------------
+   GLOBAL THEME
+--------------------------------------------------------- */
+:root {
+  --bg: #05060a;
+  --bg-alt: #0b0d14;
+  --accent: #ff3b3b;
+  --accent-soft: #ff6b6b;
+  --text: #f5f5f5;
+  --muted: #9ca3af;
+  --border: rgba(148, 163, 184, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------------------------------------------
+   HERO SECTION
+--------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  background: url('/frontend/assets/milisaka-app-bg.jpeg') center/cover no-repeat;
+  padding: 7rem 2rem;
+  text-align: center;
+  color: var(--text);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+#scramble-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.45);
+}
+
+.hero-sub {
+  margin-top: 1rem;
+  color: var(--muted);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ---------------------------------------------------------
+   BUTTONS
+--------------------------------------------------------- */
+.btn-red {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.btn-red:hover {
+  background: var(--accent-soft);
+}
+
+.btn-dark {
+  background: #111;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: #111;
+}
+
+/* ---------------------------------------------------------
+   SECTION TAGS
+--------------------------------------------------------- */
+.section-tag {
+  color: var(--accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------------------------------------------------------
+   MISSION SECTION
+--------------------------------------------------------- */
+.mission-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.mission-grid {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mission-grid p {
+  max-width: 600px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.mission-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.stat-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ---------------------------------------------------------
+   SECTORS SERVED
+--------------------------------------------------------- */
+.sectors-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.sectors-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.sector-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  width: 300px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sector-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 18px rgba(255, 59, 59, 0.25);
+}
+
+.sector-icon {
+  width: 40px;
+  margin-bottom: 1rem;
+}
+
+.sector-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   FEATURED / ARSENAL SECTION
+--------------------------------------------------------- */
+.featured-section,
+.arsenal-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 18px rgba(255, 59, 59, 0.25);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.product-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.product-card .price {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Arsenal Grid */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
+   READY TO DEPLOY
+--------------------------------------------------------- */
+.deploy-section {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.deploy-icon {
+  width: 48px;
+  margin-bottom: 1rem;
+}
+
+.deploy-sub {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+.deploy-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ---------------------------------------------------------
+   TACTICAL GRID UNDERLAY
+--------------------------------------------------------- */
+.tactical-grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.tactical-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Fade-in animation */
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scanline overlay */
+.scanline-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0.05),
+    rgba(255, 0, 0, 0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: scanlineMove 6s linear infinite;
+  z-index: 9999;
+}
+
+@keyframes scanlineMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(4px); }
+}
