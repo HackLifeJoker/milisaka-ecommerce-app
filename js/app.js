@@ -1,24 +1,18 @@
-﻿// Inject navbar + footer using RELATIVE paths
-export async function injectLayout() {
-    try {
-      const navbar = await fetch('./navbar.html').then(r => r.text());
-      const footer = await fetch('./footer.html').then(r => r.text());
-  
-      // Insert navbar at top of body
-      document.body.insertAdjacentHTML('afterbegin', navbar);
-  
-      // Insert footer at bottom of body
-      document.body.insertAdjacentHTML('beforeend', footer);
-  
-      // Load navbar JS AFTER navbar is injected
-      import('./navbar.js');
-    } catch (err) {
-      console.error('Layout injection failed:', err);
+﻿import { defineConfig } from 'vite';
+import { resolve } from 'path';
+
+export default defineConfig({
+  root: '.', // Serve from project root
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html') // Use root index.html
+      }
     }
+  },
+  server: {
+    open: '/index.html' // Load index.html on dev start
   }
-  
-  // Initialize layout
-  document.addEventListener('DOMContentLoaded', () => {
-    injectLayout();
-  });
-  
+});

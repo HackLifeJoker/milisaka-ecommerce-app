@@ -1,50 +1,78 @@
-<header class="navbar">
-    <div class="nav-left">
-      <a href="home.html">
-        <img src="/frontend/assets/logo/Milisaka-Inc-logo-transparent.png" class="nav-logo" alt="Milisaka Logo">
-      </a>
-    </div>
+<header>
+  <nav class="navbar">
   
-    <div class="nav-center">
-      <input type="text" id="nav-search" class="nav-search" placeholder="Search catalogue...">
+    <div class="nav-left">
+      <img src="/frontend/assets/logo/Milisaka-Inc-logo-transparent.png" class="nav-logo" alt="Milisaka Logo">
     </div>
   
     <div class="nav-right">
-      <a href="products.html" class="nav-icon">
-        <img src="/frontend/assets/icons/search.svg" alt="Search">
-      </a>
   
-      <a href="cart.html" class="nav-icon">
-        <img src="/frontend/assets/icons/cart.svg" alt="Cart">
-      </a>
+      <div class="nav-search">
+        <input
+            type="text"
+            id="nav-search"
+            name="nav-search"
+            placeholder="Search tactical gear...">
+      </div>
   
-      <a href="login.html" class="nav-icon">
-        <img src="/frontend/assets/icons/user.svg" alt="User">
-      </a>
-  
-      <button id="hamburger-btn" class="hamburger-btn">
-        <img src="/frontend/assets/icons/hamburger.svg" alt="Menu">
+      <button class="icon-btn user-btn">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="#d0d0d0">
+          <circle cx="12" cy="8" r="4"></circle>
+          <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+        </svg>
       </button>
-    </div>
-  </header>
   
-  <!-- Hamburger Menu Overlay -->
-  <div id="hamburger-overlay" class="hamburger-overlay">
-    <div class="hamburger-content">
-      <img src="/frontend/assets/logo/Milisaka-Inc-logo-transparent.png" class="hamburger-logo" alt="Milisaka Logo">
-  
-      <nav class="hamburger-links">
-        <a href="about.html">About Us</a>
-        <a href="solutions.html">Sector Solutions</a>
-        <a href="products.html">View Catalogue</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="quote.html">Request a Quote</a>
-        <a href="login.html">Login</a>
-      </nav>
-  
-      <button id="hamburger-close" class="hamburger-close">
-        <img src="/frontend/assets/icons/close.svg" alt="Close">
+      <button class="icon-btn" id="cart-btn">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="#d0d0d0">
+          <path d="M3 4h4l2.5 10h9l3-8H7" />
+          <rect x="9" y="18" width="3" height="3" />
+          <rect x="16" y="18" width="3" height="3" />
+        </svg>
       </button>
-    </div>
-  </div>
   
+      <!-- CART DRAWER -->
+      <div id="cart-drawer" class="cart-drawer">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+
+        <button id="view-cart-btn" class="drawer-btn">View Cart</button>
+
+        <button id="close-cart" class="drawer-close-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#d0d0d0">
+            <path d="M18 6L6 18" stroke="#d0d0d0" stroke-width="2"/>
+            <path d="M6 6L18 18" stroke="#d0d0d0" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- HAMBURGER MENU -->
+      <div class="hamburger" id="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div> <!-- END nav-right -->
+
+    <!-- MOBILE MENU (must be OUTSIDE nav-right) -->
+    <div class="mobile-menu" id="mobile-menu">
+      <img src="/frontend/assets/logo/Milisaka-Inc-logo-transparent.png" class="mobile-menu-logo">
+      
+      <button id="mobile-menu-close" class="mobile-menu-close-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#d0d0d0">
+          <path d="M18 6L6 18" stroke="#d0d0d0" stroke-width="2"/>
+          <path d="M6 6L18 18" stroke="#d0d0d0" stroke-width="2"/>
+        </svg>
+      </button>
+      
+      <a href="/index.html">HQ</a>
+      <a href="/frontend/html/products.html">CATALOGUE</a>
+      <a href="/frontend/html/solutions.html">SECTORS</a>
+      <a href="/frontend/html/contact.html">CONTACT</a>
+      <a href="/frontend/html/quote.html">REQUEST A QUOTE</a>
+      <a href="/frontend/html/login.html">LOGIN</a>
+    </div>
+
+  </nav>
+</header>
+
