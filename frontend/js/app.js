@@ -3,10 +3,6 @@
 // ===============================
 
 // 1. Import utilities and page logic FIRST
-import '/frontend/js/utils.js';
-import '/frontend/js/home.js';
-
-// 2. Layout injection (header + footer)
 export async function injectLayout() {
   try {
     const navbar = await fetch('/frontend/html/navbar.html').then(r => r.text());
@@ -19,7 +15,6 @@ export async function injectLayout() {
     console.error('Layout injection failed:', err);
   }
 }
-
 
 // ===============================
 // 3. HEADER EVENT LISTENERS
