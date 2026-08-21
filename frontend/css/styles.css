@@ -15,17 +15,11 @@
    
      /* GRID2 */
      --grid-line: rgba(255, 255, 255, 0.06);
-   
-     /* Radii */
      --radius-sm: 4px;
      --radius-md: 8px;
      --radius-lg: 12px;
-   
-     /* Transitions */
      --transition-fast: 150ms ease-out;
      --transition-med: 220ms ease-out;
-   
-     /* Shadows */
      --shadow-soft: 0 0 24px rgba(0, 0, 0, 0.6);
    }
    
@@ -65,13 +59,19 @@
     background:
       linear-gradient(var(--grid-line) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-      var(--bg);
+      rgba(0, 0, 0, 0.4); 
     background-size: 40px 40px;
   }
   
   .tactical-grid-animated {
     animation: gridDrift 18s linear infinite;
   }
+  
+  @keyframes gridDrift {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 40px 40px, 40px 40px; }
+  }
+  
   
   @keyframes gridDrift {
     0% { background-position: 0 0, 0 0; }
@@ -279,6 +279,10 @@ header {
 .cart-drawer.open {
   right: 0;
 }
+.cart-drawer:not(.open) {
+  display: none;
+}
+
 
 .cart-header {
   font-size: 1.4rem;
@@ -657,7 +661,7 @@ header {
   background: var(--bg-alt);
   padding: 2.5rem 2rem;
   border-top: 1px solid var(--border);
-  position: relative;
+  position: static;
   color: var(--text);
 }
 
@@ -818,7 +822,7 @@ section {
     transparent 4px
   );
   animation: scanlineMove 6s linear infinite;
-  z-index: 9999;
+  z-index: -1 !important;
 }
 
 @keyframes scanlineMove {
@@ -866,7 +870,12 @@ section {
   }
 }
 
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-* {
-  background-image: none !important;
+footer {
+  margin-top: auto;
 }

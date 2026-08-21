@@ -7,88 +7,90 @@
   <!-- Global + Page CSS -->
   <link rel="stylesheet" href="/frontend/css/styles.css">
   <link rel="stylesheet" href="/frontend/css/products.css">
-
-  <!-- JS Modules -->
-  <script type="module" src="/frontend/js/app.js"></script>
-  <script type="module" src="/frontend/js/products.js"></script>
 </head>
 
 <body class="theme-dark">
-  <!-- Header/footer injected by app.js -->
 
-  <main id="products-page" class="products-page">
+  <div id="app">
+    <!-- Header/footer injected by app.js -->
 
-    <!-- Unified Tactical Toolbar -->
-    <section class="products-toolbar fade-in">
-      <div class="products-categories">
-        <button class="category-filter active" data-category="ALL">All</button>
-        <button class="category-filter" data-category="Cybersecurity Software">Cybersecurity</button>
-        <button class="category-filter" data-category="Accessories & Peripherals">Accessories</button>
-        <button class="category-filter" data-category="Computers & Workstations">Computers</button>
-        <button class="category-filter" data-category="Servers">Servers</button>
-      </div>
+    <main id="products-page" class="products-page">
 
-      <div class="products-sort">
-        <select id="sort-select">
-          <option value="default">Sort</option>
-          <option value="price-asc">Price: Low → High</option>
-          <option value="price-desc">Price: High → Low</option>
-          <option value="name-asc">Name A → Z</option>
-          <option value="category">Category</option>
-          <option value="sector">Sector</option>
-        </select>
-      </div>
-    </section>
-
-    <!-- Product Grid -->
-    <section id="products-grid" class="products-grid fade-in">
-      <!-- Cards injected by products.js -->
-    </section>
-
-  </main>
-
-  <!-- Floating Product Modal -->
-  <div id="product-modal-backdrop" class="product-modal-backdrop hidden">
-    <div id="product-modal" class="product-modal">
-
-      <button id="product-modal-close" class="product-modal-close" aria-label="Close product details">
-        ✕
-      </button>
-
-      <div class="product-modal-header">
-        <span id="modal-sector-badge" class="sector-badge"></span>
-        <h2 id="modal-name"></h2>
-      </div>
-
-      <!-- Option A: Image Left, Details Right -->
-      <div class="product-modal-body">
-
-        <!-- LEFT COLUMN: PRODUCT IMAGE -->
-        <div class="modal-image-column">
-          <img id="modal-image" class="modal-image" alt="Product image">
+      <!-- Unified Tactical Toolbar -->
+      <section class="products-toolbar fade-in">
+        <div class="products-categories">
+          <button class="category-filter active" data-category="ALL">All</button>
+          <button class="category-filter" data-category="Cybersecurity Software">Cybersecurity</button>
+          <button class="category-filter" data-category="Accessories & Peripherals">Accessories</button>
+          <button class="category-filter" data-category="Computers & Workstations">Computers</button>
+          <button class="category-filter" data-category="Servers">Servers</button>
         </div>
 
-        <!-- RIGHT COLUMN: DETAILS -->
-        <div class="modal-details-column">
-          <p id="modal-category-stock" class="modal-category-stock"></p>
-          <p id="modal-description" class="modal-description"></p>
-
-          <div id="modal-specs" class="modal-specs"></div>
-          <div id="modal-dossier" class="modal-dossier"></div>
+        <div class="products-sort">
+          <select id="sort-select">
+            <option value="default">Sort</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="name-asc">Name A → Z</option>
+            <option value="category">Category</option>
+            <option value="sector">Sector</option>
+          </select>
         </div>
+      </section>
 
-      </div>
+      <!-- Product Grid -->
+      <section id="products-grid" class="products-grid fade-in">
+        <!-- Cards injected by products.js -->
+      </section>
 
-      <div class="product-modal-footer">
-        <span id="modal-price" class="modal-price"></span>
-        <button id="modal-add-to-cart" class="btn btn-cart">
-          <span class="cart-icon"></span>
-          Add to Cart
+    </main>
+
+    <!-- Floating Product Modal -->
+    <div id="product-modal-backdrop" class="product-modal-backdrop hidden">
+      <div id="product-modal" class="product-modal">
+
+        <button id="product-modal-close" class="product-modal-close" aria-label="Close product details">
+          ✕
         </button>
-      </div>
 
+        <div class="product-modal-header">
+          <span id="modal-sector-badge" class="sector-badge"></span>
+          <h2 id="modal-name"></h2>
+        </div>
+
+        <div class="product-modal-body">
+
+          <div class="modal-image-column">
+            <img id="modal-image" class="modal-image" alt="Product image">
+          </div>
+
+          <div class="modal-details-column">
+            <p id="modal-category-stock" class="modal-category-stock"></p>
+            <p id="modal-description" class="modal-description"></p>
+
+            <div id="modal-specs" class="modal-specs"></div>
+            <div id="modal-dossier" class="modal-dossier"></div>
+          </div>
+
+        </div>
+
+        <div class="product-modal-footer">
+          <span id="modal-price" class="modal-price"></span>
+          <button id="modal-add-to-cart" class="btn btn-cart">
+            <span class="cart-icon"></span>
+            Add to Cart
+          </button>
+        </div>
+
+      </div>
     </div>
+
   </div>
+
+  <script type="module" src="/frontend/js/app.js"></script>
+  <script type="module" src="/frontend/js/navbar.js"></script>
+  <script type="module" src="/frontend/js/cart.js"></script>
+  <script type="module" src="/frontend/js/products.js"></script>
 
 </body>
 </html>

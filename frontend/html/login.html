@@ -3,22 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login — Milisaka, Inc.</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Milikasa Secure Commerce Node — Login</title>
+
+  <link rel="stylesheet" href="../css/login.css" />
 </head>
+
 <body>
-  <div id="navbar"></div>
-  <main class="main">
-    <section style="min-height:80vh;display:flex;align-items:center;justify-content:center;padding:0 1rem">
-      <div id="login-card" style="width:100%;max-width:28rem"></div>
-    </section>
-  </main>
-  <div id="footer"></div>
-  <script type="module" src="js/api.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/layout.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/login.js"></script>
+
+  <!-- Background Grid + Scanlines -->
+  <div class="terminal-bg"></div>
+  <div class="scanlines"></div>
+
+  <!-- Terminal Container -->
+  <div class="terminal-wrapper">
+
+    <!-- Logo -->
+    <a href="/index.html" class="terminal-logo">
+      <img src="/frontend/assets/logo/Milisaka-Inc-logo-transparent.png" alt="Milikasa Logo" />
+    </a>
+
+    <!-- Terminal Header -->
+    <h1 class="terminal-title">MILISAKA SECURE COMMERCE NODE</h1>
+    <p class="terminal-subtitle">ACCESS LEVEL: CIVILIAN</p>
+
+    <!-- Login Panel -->
+    <div class="terminal-panel">
+
+      <h2 class="panel-title">USER AUTHENTICATION</h2>
+
+      <label class="panel-label">Email Address</label>
+      <input type="email" id="email" class="panel-input" placeholder="agent@domain.com" />
+
+      <label class="panel-label">Password</label>
+      <input type="password" id="password" class="panel-input" placeholder="••••••••" />
+
+      <!-- Error Message -->
+      <p id="login-error" class="panel-error"></p>
+
+      <!-- Buttons -->
+      <div class="panel-buttons">
+        <button id="login-btn" class="panel-btn primary">LOGIN</button>
+        <button id="register-btn" class="panel-btn secondary">REGISTER</button>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <p class="terminal-footer">MILISAKA, INC. — HARDWARE FOR THE UNFORGIVING</p>
+
+  </div>
+
+  <script type="module" src="../js/login.js"></script>
 </body>
 </html>

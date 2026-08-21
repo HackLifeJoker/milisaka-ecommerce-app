@@ -1,11 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.querySelector(".nav-toggle");
-  const mobileMenu = document.querySelector(".nav-mobile");
+  const cartBtn = document.getElementById("cart-btn");
+  const cartDrawer = document.getElementById("cart-drawer");
+  const closeCart = document.getElementById("close-cart");
+  const hamburgerBtn = document.getElementById("hamburger-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuClose = document.getElementById("mobile-menu-close");
 
-  if (!toggle || !mobileMenu) return;
+  if (cartBtn && cartDrawer) {
+    cartBtn.addEventListener("click", () => {
+      cartDrawer.classList.add("open");
+    });
 
-  toggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("open");
-    toggle.classList.toggle("open");
-  });
+    closeCart.addEventListener("click", () => {
+      cartDrawer.classList.remove("open");
+    });
+  }
+
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("open");
+    });
+
+    mobileMenuClose.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+    });
+  }
 });

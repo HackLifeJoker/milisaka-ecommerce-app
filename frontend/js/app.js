@@ -1,13 +1,14 @@
-﻿// ===============================
-// app.js — global initializer
-// ===============================
+﻿// ===========================
+// GLOBAL LAYOUT INJECTION
+// ===========================
 
-// 1. Import utilities and page logic FIRST
-export async function injectLayout() {
+async function injectLayout() {
   try {
+    // Inject navbar at the top of the body
     const navbar = await fetch('/frontend/html/navbar.html').then(r => r.text());
     document.body.insertAdjacentHTML('afterbegin', navbar);
 
+    // Inject footer at the bottom of the body
     const footer = await fetch('/frontend/html/footer.html').then(r => r.text());
     document.body.insertAdjacentHTML('beforeend', footer);
 
@@ -17,12 +18,10 @@ export async function injectLayout() {
 }
 
 // ===============================
-// 3. HEADER EVENT LISTENERS
+// HEADER EVENT LISTENERS
 // ===============================
 
 function setupHeaderListeners() {
-
-  // HAMBURGER MENU
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -32,7 +31,6 @@ function setupHeaderListeners() {
     });
   }
 
-  // MOBILE MENU CLOSE BUTTON
   const mobileMenuClose = document.getElementById('mobile-menu-close');
   if (mobileMenuClose && mobileMenu) {
     mobileMenuClose.addEventListener('click', () => {
@@ -40,17 +38,12 @@ function setupHeaderListeners() {
     });
   }
 
-  // CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
   document.addEventListener('click', (e) => {
-    const clickedInsideMenu = mobileMenu.contains(e.target);
-    const clickedHamburger = hamburgerBtn.contains(e.target);
-
-    if (!clickedInsideMenu && !clickedHamburger) {
+    if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
       mobileMenu.classList.remove('open');
     }
   });
 
-  // USER BUTTON → LOGIN PAGE
   const userBtn = document.querySelector('.icon-btn.user-btn');
   if (userBtn) {
     userBtn.addEventListener('click', () => {
@@ -58,7 +51,6 @@ function setupHeaderListeners() {
     });
   }
 
-  // CART BUTTON → OPEN DRAWER
   const cartBtn = document.getElementById('cart-btn');
   if (cartBtn) {
     cartBtn.addEventListener('click', () => {
@@ -67,7 +59,6 @@ function setupHeaderListeners() {
     });
   }
 
-  // CLOSE CART DRAWER
   const closeCart = document.getElementById('close-cart');
   if (closeCart) {
     closeCart.addEventListener('click', () => {
@@ -76,7 +67,6 @@ function setupHeaderListeners() {
     });
   }
 
-  // VIEW CART BUTTON → CART PAGE
   const viewCartBtn = document.getElementById('view-cart-btn');
   if (viewCartBtn) {
     viewCartBtn.addEventListener('click', () => {
@@ -85,12 +75,11 @@ function setupHeaderListeners() {
   }
 }
 
-
 // ===============================
-// 4. MAIN INITIALIZER
+// MAIN INITIALIZER
 // ===============================
 
-window.addEventListener('load', async () => {
-  await injectLayout();
-  setupHeaderListeners();
+window.addEventListener('DOMContentLoaded', async () => {
+  await injectLayout();        // inject ONCE
+  setupHeaderListeners();      // bind events AFTER injection
 });
