@@ -1,15 +1,11 @@
 const Cart = require('../models/Cart');
 
-// helper: build query from userId/guestId
-const getCartQuery = ({ userId, guestId }) =>
-  userId ? { userId } : { guestId };
-
 exports.getCart = async (req, res) => {
   try {
-    const { userId, guestId } = req.query;
-    const query = getCartQuery({ userId, guestId });
+    const { userId } = req.query;
+    if (!userId) return res.status(400).json({ error: "userId required" });
 
-    const cart = await Cart.findOne(query);
+    const cart = await Cart.findOne({ userId });
     res.json(cart || { items: [] });
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch cart' });
@@ -18,21 +14,18 @@ exports.getCart = async (req, res) => {
 
 exports.addToCart = async (req, res) => {
   try {
-    const { userId, guestId, product } = req.body;
-    const query = getCartQuery({ userId, guestId });
+    const { userId, product } = req.body;
+    if (!userId) return res.status(400).json({ error: "userId required" });
 
-    let cart = await Cart.findOne(query);
+    let cart = await Cart.findOne({ userId });
 
     if (!cart) {
       cart = new Cart({
-        userId: userId || null,
-        guestId: guestId || null,
+        userId,
         items: [product]
       });
     } else {
-      const existing = cart.items.find(
-        i => i.productId === product.productId
-      );
+      const existing = cart.items.find(i => i.productId === product.productId);
 
       if (existing) {
         existing.quantity += product.quantity || 1;
@@ -51,10 +44,10 @@ exports.addToCart = async (req, res) => {
 
 exports.updateItem = async (req, res) => {
   try {
-    const { userId, guestId, productId, quantity } = req.body;
-    const query = getCartQuery({ userId, guestId });
+    const { userId, productId, quantity } = req.body;
+    if (!userId) return res.status(400).json({ error: "userId required" });
 
-    const cart = await Cart.findOne(query);
+    const cart = await Cart.findOne({ userId });
     if (!cart) return res.status(404).json({ error: 'Cart not found' });
 
     const item = cart.items.find(i => i.productId === productId);
@@ -71,10 +64,10 @@ exports.updateItem = async (req, res) => {
 
 exports.removeItem = async (req, res) => {
   try {
-    const { userId, guestId, productId } = req.body;
-    const query = getCartQuery({ userId, guestId });
+    const { userId, productId } = req.body;
+    if (!userId) return res.status(400).json({ error: "userId required" });
 
-    const cart = await Cart.findOne(query);
+    const cart = await Cart.findOne({ userId });
     if (!cart) return res.status(404).json({ error: 'Cart not found' });
 
     cart.items = cart.items.filter(i => i.productId !== productId);
@@ -88,10 +81,10 @@ exports.removeItem = async (req, res) => {
 
 exports.clearCart = async (req, res) => {
   try {
-    const { userId, guestId } = req.body;
-    const query = getCartQuery({ userId, guestId });
+    const { userId } = req.body;
+    if (!userId) return res.status(400).json({ error: "userId required" });
 
-    const cart = await Cart.findOne(query);
+    const cart = await Cart.findOne({ userId });
     if (!cart) return res.status(404).json({ error: 'Cart not found' });
 
     cart.items = [];
