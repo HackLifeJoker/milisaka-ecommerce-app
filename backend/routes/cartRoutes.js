@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cartController = require('../controllers/cartController');
-const Cart = require('../models/Cart');   // REQUIRED
+const Cart = require('../models/Cart');   
 
 // Get cart (user or guest)
 router.get('/', cartController.getCart);

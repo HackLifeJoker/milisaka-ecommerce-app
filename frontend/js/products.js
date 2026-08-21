@@ -454,9 +454,10 @@ const products = [
   
   
   function addToCart(product) {
-    // Backend-powered cart system
-    addToCart(product); // calls the exported function from cart.js
+    // Call backend cart system
+    addToCartBackend(product);
   }
+  
   
   function applyFiltersAndSort() {
     let filtered = products.slice();

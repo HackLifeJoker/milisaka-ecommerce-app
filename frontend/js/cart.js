@@ -14,13 +14,14 @@ export async function getCartOwnerId() {
 }
 
 // ===== BACKEND API CALLS =====
+
 async function addToCartBackend(product) {
   const ownerId = await getCartOwnerId();
 
   await fetch('http://localhost:5000/cart/add', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ownerId, product })
+    body: JSON.stringify({ userId: ownerId, product })
   });
 }
 
@@ -30,7 +31,7 @@ async function removeFromCartBackend(productId) {
   await fetch('http://localhost:5000/cart/remove', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ownerId, productId })
+    body: JSON.stringify({ userId: ownerId, productId })
   });
 }
 
@@ -40,18 +41,19 @@ async function updateQuantityBackend(productId, quantity) {
   await fetch('http://localhost:5000/cart/update', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ownerId, productId, quantity })
+    body: JSON.stringify({ userId: ownerId, productId, quantity })
   });
 }
 
 async function fetchCartFromBackend() {
   const ownerId = await getCartOwnerId();
 
-  const res = await fetch(`http://localhost:5000/cart?ownerId=${ownerId}`);
+  const res = await fetch(`http://localhost:5000/cart?userId=${ownerId}`);
   const data = await res.json();
 
   return data?.items || [];
 }
+
 
 // ===== ADD TO CART (exported for products.js) =====
 export async function addToCart(product) {
