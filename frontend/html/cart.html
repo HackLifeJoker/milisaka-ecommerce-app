@@ -10,30 +10,9 @@
 </head>
 
 <body class="theme-dark">
-
   <div id="app">
-
- <!-- CART MODAL DRAWER -->
-<div id="cart-modal-backdrop" class="cart-modal-backdrop hidden">
-  <div id="cart-modal" class="cart-modal">
-
-    <button id="cart-modal-close" class="cart-modal-close">✕</button>
-
-    <h2 class="cart-modal-title">Your Cart</h2>
-
-    <div id="cart-modal-items" class="cart-modal-items">
-      <!-- Drawer items injected by renderCartDrawer() -->
-    </div>
-
-  </div>
-</div>
-
-
-
     <main class="cart-page tactical-grid tactical-grid-animated fade-in">
-
       <section class="cart-items-page" id="cart-items-page">
-     
       </section>
 
       <aside class="cart-summary">
@@ -43,6 +22,8 @@
           <span>Subtotal</span>
           <span id="summary-subtotal">$0.00</span>
         </div>
+        
+        <div class="summary-divider"></div>
 
         <div class="summary-line total">
           <span>Total</span>
@@ -53,7 +34,7 @@
           PROCEED TO CHECKOUT
         </button>
 
-        <a href="/frontend/html/products.html" class="continue-shopping">
+        <a href="/frontend/html/products.html" class="continue-btn">
           CONTINUE SHOPPING
         </a>
       </aside>
@@ -71,7 +52,8 @@
   <!-- JS Modules (correct order) -->
   <script type="module" src="/frontend/js/app.js"></script>
   <script type="module" src="/frontend/js/navbar.js"></script>
+  <script type="module" src="/frontend/js/session.js"></script>
   <script type="module" src="/frontend/js/cart.js"></script>
-
+  
 </body>
 </html>

@@ -1,6 +1,4 @@
-﻿// ===========================
-// GLOBAL LAYOUT INJECTION
-// ===========================
+﻿// GLOBAL LAYOUT INJECTION
 
 async function injectLayout() {
   try {
@@ -12,18 +10,31 @@ async function injectLayout() {
     const footer = await fetch('/frontend/html/footer.html').then(r => r.text());
     document.body.insertAdjacentHTML('beforeend', footer);
 
+    // Inject GLOBAL CART DRAWER (Option B)
+    const drawer = await fetch('/frontend/html/cartDrawer.html').then(r => r.text());
+    document.body.insertAdjacentHTML('beforeend', drawer);
+
+    // Inject cart.css globally
+    const cartCSS = document.createElement('link');
+    cartCSS.rel = 'stylesheet';
+    cartCSS.href = '/frontend/css/cart.css';
+    document.head.appendChild(cartCSS);
+
+    // Inject GLOBAL USER DRAWER
+    const userDrawer = await fetch('/frontend/html/userDrawer.html').then(r => r.text());
+    document.body.insertAdjacentHTML('beforeend', userDrawer);
+
   } catch (err) {
     console.error('Layout injection failed:', err);
   }
 }
 
-// ===============================
 // HEADER EVENT LISTENERS
-// ===============================
 
 function setupHeaderListeners() {
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
 
   if (hamburgerBtn && mobileMenu) {
     hamburgerBtn.addEventListener('click', () => {
@@ -31,7 +42,6 @@ function setupHeaderListeners() {
     });
   }
 
-  const mobileMenuClose = document.getElementById('mobile-menu-close');
   if (mobileMenuClose && mobileMenu) {
     mobileMenuClose.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
@@ -44,30 +54,36 @@ function setupHeaderListeners() {
     }
   });
 
-  const userBtn = document.querySelector('.icon-btn.user-btn');
-  if (userBtn) {
-    userBtn.addEventListener('click', () => {
-      window.location.href = '/frontend/html/login.html';
-    });
-  }
-
+  // CART DRAWER CONTROLS
   const cartBtn = document.getElementById('cart-btn');
-  if (cartBtn) {
-    cartBtn.addEventListener('click', () => {
-      const drawer = document.getElementById('cart-drawer');
-      if (drawer) drawer.classList.add('open');
-    });
-  }
-
-  const closeCart = document.getElementById('close-cart');
-  if (closeCart) {
-    closeCart.addEventListener('click', () => {
-      const drawer = document.getElementById('cart-drawer');
-      if (drawer) drawer.classList.remove('open');
-    });
-  }
-
+  const backdrop = document.getElementById('cart-modal-backdrop');
+  const closeBtn = document.getElementById('cart-modal-close');
   const viewCartBtn = document.getElementById('view-cart-btn');
+
+  // Open drawer
+  if (cartBtn && backdrop) {
+    cartBtn.addEventListener('click', () => {
+      backdrop.classList.remove('hidden');
+    });
+  }
+
+  // Close drawer via X button
+  if (closeBtn && backdrop) {
+    closeBtn.addEventListener('click', () => {
+      backdrop.classList.add('hidden');
+    });
+  }
+
+  // Close drawer by clicking backdrop
+  if (backdrop) {
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) {
+        backdrop.classList.add('hidden');
+      }
+    });
+  }
+
+  // View Cart button
   if (viewCartBtn) {
     viewCartBtn.addEventListener('click', () => {
       window.location.href = '/frontend/html/cart.html';
@@ -75,11 +91,9 @@ function setupHeaderListeners() {
   }
 }
 
-// ===============================
 // MAIN INITIALIZER
-// ===============================
 
 window.addEventListener('DOMContentLoaded', async () => {
-  await injectLayout();        // inject ONCE
-  setupHeaderListeners();      // bind events AFTER injection
+  await injectLayout();        
+  setupHeaderListeners();      
 });

@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { mergeGuestCartIntoUserCart } from './cart.js';
+//import { mergeGuestCartIntoUserCart } from './cart.js';
 
 // Load Supabase keys from Vite environment
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;

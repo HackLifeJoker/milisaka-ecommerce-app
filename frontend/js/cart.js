@@ -1,6 +1,15 @@
 import { getCurrentUser } from './session.js';
 
-// ===== Determine Cart Owner (User or Guest) =====
+function normalizeProduct(product) {
+  return {
+    productId: product.id,
+    name: product.name,
+    price: product.price,
+    quantity: product.quantity || 1,
+    image: product.image
+  };
+}
+
 export async function getCartOwnerId() {
   const user = await getCurrentUser();
   if (user) return user.id;
@@ -13,49 +22,45 @@ export async function getCartOwnerId() {
   return guestId;
 }
 
-// ===== BACKEND API CALLS =====
-
 async function addToCartBackend(product) {
-  const ownerId = await getCartOwnerId();
+  const userId = await getCartOwnerId();
 
   await fetch('http://localhost:5000/cart/add', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ userId: ownerId, product })
+    body: JSON.stringify({ userId, product: normalizeProduct(product) })
   });
 }
 
 async function removeFromCartBackend(productId) {
-  const ownerId = await getCartOwnerId();
+  const userId = await getCartOwnerId();
 
   await fetch('http://localhost:5000/cart/remove', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ userId: ownerId, productId })
+    body: JSON.stringify({ userId, productId })
   });
 }
 
 async function updateQuantityBackend(productId, quantity) {
-  const ownerId = await getCartOwnerId();
+  const userId = await getCartOwnerId();
 
   await fetch('http://localhost:5000/cart/update', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ userId: ownerId, productId, quantity })
+    body: JSON.stringify({ userId, productId, quantity })
   });
 }
 
 async function fetchCartFromBackend() {
-  const ownerId = await getCartOwnerId();
+  const userId = await getCartOwnerId();
 
-  const res = await fetch(`http://localhost:5000/cart?userId=${ownerId}`);
+  const res = await fetch(`http://localhost:5000/cart?userId=${userId}`);
   const data = await res.json();
 
   return data?.items || [];
 }
 
-
-// ===== ADD TO CART (exported for products.js) =====
 export async function addToCart(product) {
   await addToCartBackend(product);
   await renderCartDrawer();
@@ -64,7 +69,6 @@ export async function addToCart(product) {
   showCartPopup(product.name);
 }
 
-// ===== REMOVE ITEM =====
 async function removeFromCart(productId) {
   await removeFromCartBackend(productId);
   await renderCartDrawer();
@@ -72,7 +76,6 @@ async function removeFromCart(productId) {
   await updateCartBubble();
 }
 
-// ===== UPDATE QUANTITY =====
 async function updateQuantity(productId, newQty) {
   await updateQuantityBackend(productId, newQty);
   await renderCartDrawer();
@@ -80,7 +83,6 @@ async function updateQuantity(productId, newQty) {
   await updateCartBubble();
 }
 
-// ===== CART BUBBLE =====
 async function updateCartBubble() {
   const bubble = document.getElementById('cart-count-bubble');
   if (!bubble) return;
@@ -96,39 +98,9 @@ async function updateCartBubble() {
   }
 }
 
-// ===== GLOBAL MODAL DRAWER BINDINGS =====
-function setupDrawerListeners() {
-  const backdrop = document.getElementById('cart-modal-backdrop');
-  const modalClose = document.getElementById('cart-modal-close');
-
-  // Open from header cart icon
-  document.addEventListener('click', (e) => {
-    const cartBtn = e.target.closest('#cart-btn');
-    if (cartBtn && backdrop) {
-      backdrop.classList.remove('hidden');
-    }
-  });
-
-  // Close via X button
-  if (modalClose && backdrop) {
-    modalClose.addEventListener('click', () => {
-      backdrop.classList.add('hidden');
-    });
-  }
-
-  // Close via backdrop click
-  if (backdrop) {
-    backdrop.addEventListener('click', (e) => {
-      if (e.target === backdrop) {
-        backdrop.classList.add('hidden');
-      }
-    });
-  }
-}
-
-// ===== RENDER DRAWER ITEMS =====
 async function renderCartDrawer() {
   const drawerItemsEl = document.getElementById('cart-modal-items');
+  const drawerSubtotalEl = document.getElementById('drawer-subtotal-amount');
   if (!drawerItemsEl) return;
 
   const backendCart = await fetchCartFromBackend();
@@ -136,6 +108,7 @@ async function renderCartDrawer() {
 
   if (backendCart.length === 0) {
     drawerItemsEl.innerHTML = `<p class="empty-cart">Your cart is empty.</p>`;
+    if (drawerSubtotalEl) drawerSubtotalEl.textContent = '$0.00';
     return;
   }
 
@@ -159,16 +132,26 @@ async function renderCartDrawer() {
   document.querySelectorAll('.drawer-remove-btn').forEach(btn => {
     btn.addEventListener('click', () => removeFromCart(btn.dataset.id));
   });
+
+  const subtotal = backendCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  if (drawerSubtotalEl) drawerSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
 }
 
-// ===== CART PAGE RENDERER =====
 async function renderCartPage() {
+  console.log('[cart] renderCartPage called');   // ← ADD THIS
+
   const pageItemsEl = document.getElementById('cart-items-page');
   const subtotalEl = document.getElementById('summary-subtotal');
   const totalEl = document.getElementById('summary-total');
-  if (!pageItemsEl || !subtotalEl || !totalEl) return;
+
+  if (!pageItemsEl || !subtotalEl || !totalEl) {
+    console.log('[cart] missing elements:', { pageItemsEl, subtotalEl, totalEl });  // ← ADD THIS
+    return;
+  }
 
   const backendCart = await fetchCartFromBackend();
+  console.log('[cart] backendCart on cart page:', backendCart);   // ← ADD THIS
+
   pageItemsEl.innerHTML = '';
 
   if (backendCart.length === 0) {
@@ -231,7 +214,6 @@ async function renderCartPage() {
   });
 }
 
-// ===== POPUP =====
 function showCartPopup(productName) {
   const popup = document.getElementById('cart-popup');
   const popupText = document.getElementById('popup-body-text');
@@ -244,34 +226,13 @@ function showCartPopup(productName) {
 
   setTimeout(() => {
     popup.classList.remove('visible');
-    popup.classList.add('hidden');
+    setTimeout(() => popup.classList.add('hidden'), 400);
   }, 3000);
 }
 
-// ===== MERGE GUEST CART INTO USER CART =====
-export async function mergeGuestCartIntoUserCart(userId) {
-  const guestId = localStorage.getItem('guestId');
-  if (!guestId) return;
-
-  await fetch('http://localhost:5000/cart/merge', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ guestId, userId })
-  });
-
-  localStorage.removeItem('guestId');
-
-  await renderCartDrawer();
-  await renderCartPage();
-  await updateCartBubble();
-}
-
-// ===== INITIAL LOAD (single, clean initializer) =====
 document.addEventListener('DOMContentLoaded', async () => {
-  // small delay to let app.js inject navbar/footer + drawer
-  await new Promise(resolve => setTimeout(resolve, 50));
+  await new Promise(resolve => setTimeout(resolve, 150));
 
-  setupDrawerListeners();
   await renderCartDrawer();
   await renderCartPage();
   await updateCartBubble();

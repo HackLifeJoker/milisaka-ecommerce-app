@@ -1,0 +1,9 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer shield outline -->
+  <path d="M24 6 L36 10 V22C36 30 31 35 24 38C17 35 12 30 12 22V10Z"
+        fill="none" stroke="#ff3b3b" stroke-width="2"/>
+
+  <!-- Inner shield outline -->
+  <path d="M24 12 L31 14 V21C31 26 28 29 24 31C20 29 17 26 17 21V14Z"
+        fill="none" stroke="#ff3b3b" stroke-width="2"/>
+</svg>
