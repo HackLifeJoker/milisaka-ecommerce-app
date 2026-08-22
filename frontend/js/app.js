@@ -2,25 +2,25 @@
 
 async function injectLayout() {
   try {
-    // Inject navbar at the top of the body
+    // Inject navbar at the top 
     const navbar = await fetch('/frontend/html/navbar.html').then(r => r.text());
     document.body.insertAdjacentHTML('afterbegin', navbar);
 
-    // Inject footer at the bottom of the body
+    // Inject footer at the bottom 
     const footer = await fetch('/frontend/html/footer.html').then(r => r.text());
     document.body.insertAdjacentHTML('beforeend', footer);
 
-    // Inject GLOBAL CART DRAWER (Option B)
+    // Inject CART DRAWER 
     const drawer = await fetch('/frontend/html/cartDrawer.html').then(r => r.text());
     document.body.insertAdjacentHTML('beforeend', drawer);
 
-    // Inject cart.css globally
+    // Inject cart.css 
     const cartCSS = document.createElement('link');
     cartCSS.rel = 'stylesheet';
     cartCSS.href = '/frontend/css/cart.css';
     document.head.appendChild(cartCSS);
 
-    // Inject GLOBAL USER DRAWER
+    // Inject USER DRAWER
     const userDrawer = await fetch('/frontend/html/userDrawer.html').then(r => r.text());
     document.body.insertAdjacentHTML('beforeend', userDrawer);
 
@@ -67,14 +67,14 @@ function setupHeaderListeners() {
     });
   }
 
-  // Close drawer via X button
+  // Close drawer with X button
   if (closeBtn && backdrop) {
     closeBtn.addEventListener('click', () => {
       backdrop.classList.add('hidden');
     });
   }
 
-  // Close drawer by clicking backdrop
+  // Close drawer by clicking background
   if (backdrop) {
     backdrop.addEventListener('click', (e) => {
       if (e.target === backdrop) {

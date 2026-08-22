@@ -1,5 +1,4 @@
 import { createClient } from '@supabase/supabase-js';
-//import { mergeGuestCartIntoUserCart } from './cart.js';
 
 // Load Supabase keys from Vite environment
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -46,7 +45,7 @@ loginBtn.addEventListener('click', async () => {
     return;
   }
 
-// Successful login → redirect
+// Successful login
   // Merge guest cart into user cart
   const { data: { user } } = await supabase.auth.getUser();
   await mergeGuestCartIntoUserCart(user.id);

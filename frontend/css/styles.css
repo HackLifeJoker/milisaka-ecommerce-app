@@ -1,6 +1,4 @@
-/* ==========================================================
-   GLOBAL THEME + FONTS + RESET
-   ========================================================== */
+/* GLOBAL THEME + FONTS */
 
    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;600&display=swap');
 
@@ -51,9 +49,7 @@
    button {
      font-family: inherit;
    }
-/* ==========================================================
-   TACTICAL GRID SYSTEM (GRID2 + PARALLAX DRIFT)
-   ========================================================== */
+/* TACTICAL GRID SYSTEM */
 
    .tactical-grid {
     position: relative;
@@ -80,9 +76,7 @@
     0% { background-position: 0 0, 0 0; }
     100% { background-position: 40px 40px, 40px 40px; }
   }
-/* ----------------------------------------------------------
-   HEADER / NAVIGATION (TACTICAL)
----------------------------------------------------------- */
+/* HEADER / NAVIGATION */
 
 header {
   position: fixed;
@@ -198,19 +192,16 @@ header {
   display: none;
 }
 
-/* ----------------------------------------------------------
-   HAMBURGER MENU
----------------------------------------------------------- */
+/* HAMBURGER MENU */
 
-/* Reset hamburger size */
 .hamburger {
-  width: 24px;       /* total width */
-  height: 18px;      /* total height */
+  width: 24px;       
+  height: 18px;      
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 3px;
-  transform: scale(1);   /* ensure no scaling */
+  transform: scale(1);   
 }
 
 /* Reset bar size */
@@ -234,7 +225,7 @@ header {
 .mobile-menu {
   display: none;
   position: absolute;
-  top: 70px; /* adjust based on header height */
+  top: 70px; 
   right: 20px;
   background: var(--bg-alt);
   padding: 1rem;
@@ -242,8 +233,8 @@ header {
   border-radius: 6px;
   z-index: 9999;
 
-  width: 220px;        /* ⭐ FIX: prevents huge menu */
-  max-width: 80vw;     /* responsive */
+  width: 220px;        
+  max-width: 80vw;     
   box-sizing: border-box;
 }
 
@@ -254,7 +245,7 @@ header {
 
 /* MOBILE MENU LOGO */
 .mobile-menu-logo {
-  width: 120px;        /* ⭐ FIX: controls logo size */
+  width: 120px;        
   height: auto;
   margin: 0 auto 1rem auto;
   display: block;
@@ -285,13 +276,11 @@ header {
 
 
 
-/* ----------------------------------------------------------
-   HERO SECTION (FIXED)
----------------------------------------------------------- */
+/* HERO SECTION */
 
 .hero-section {
   position: relative;
-  background: none; /* removed invalid background rule */
+  background: none; 
   padding: 7rem 2rem;
   text-align: center;
   color: var(--text);
@@ -309,7 +298,7 @@ header {
   margin-top: 6rem;
   display: flex;
   flex-direction: column;
-  align-items: center;   /* <-- centers logo, title, subtitle, buttons */
+  align-items: center;   
   justify-content: center;
   text-align: center;
 }
@@ -317,7 +306,7 @@ header {
 
 /* Logo */
 .hero-logo {
-  height: 425px;   /* try 140–180px depending on taste */
+  height: 425px;   
   width: auto;
   object-fit: contain;
   margin-bottom: 1.5rem;
@@ -358,9 +347,7 @@ header {
   justify-content: center;
 }
 
-/* ----------------------------------------------------------
-   BUTTONS
----------------------------------------------------------- */
+/* BUTTONS */
 
 .btn-red {
   background: var(--accent);
@@ -403,9 +390,7 @@ header {
   letter-spacing: 0.15em;
   margin-bottom: 0.5rem;
 }
-/* ----------------------------------------------------------
-   MISSION SECTION
----------------------------------------------------------- */
+/* MISSION SECTION */
 
 .mission-section {
   padding: 4rem 2rem;
@@ -441,9 +426,7 @@ header {
   font-weight: 600;
   color: var(--accent);
 }
-/* ----------------------------------------------------------
-   SECTORS SERVED — MERGED TACTICAL VERSION (S3)
----------------------------------------------------------- */
+/* SECTORS SERVED */
 
 .sectors-section {
   padding: 4rem 2rem;
@@ -514,9 +497,7 @@ header {
   transform: translateY(-10px);
   box-shadow: 0 0 35px rgba(255, 59, 59, 0.18);
 }
-/* ----------------------------------------------------------
-   FEATURED / ARSENAL
----------------------------------------------------------- */
+/* FEATURED ARSENAL */
 
 .featured-section,
 .arsenal-section {
@@ -574,9 +555,7 @@ header {
     grid-template-columns: 1fr;
   }
 }
-/* ----------------------------------------------------------
-   READY TO DEPLOY
----------------------------------------------------------- */
+/* READY TO DEPLOY */
 
 .deploy-section {
   text-align: center;
@@ -601,9 +580,7 @@ header {
   gap: 1rem;
   justify-content: center;
 }
-/* ----------------------------------------------------------
-   MILISAKA TACTICAL FOOTER (F2 + GRID2 + PARALLAX)
----------------------------------------------------------- */
+/* FOOTER */
 
 .milisaka-footer {
   background: var(--bg-alt);
@@ -739,9 +716,7 @@ header {
   font-size: 0.85rem;
   line-height: 1.4;
 }
-/* ----------------------------------------------------------
-   FADE-IN ANIMATION
----------------------------------------------------------- */
+/* FADE-IN ANIMATION */
 
 section {
   opacity: 0;
@@ -754,9 +729,7 @@ section {
   transform: translateY(0);
 }
 
-/* ----------------------------------------------------------
-   SCANLINE OVERLAY
----------------------------------------------------------- */
+/* SCANLINE OVERLAY */
 
 .scanline-overlay {
   position: fixed;
@@ -777,9 +750,7 @@ section {
   from { transform: translateY(0); }
   to { transform: translateY(4px); }
 }
-/* ----------------------------------------------------------
-   RESPONSIVE — GLOBAL
----------------------------------------------------------- */
+/* RESPONSIVE */
 
 @media (max-width: 1024px) {
   .product-grid {

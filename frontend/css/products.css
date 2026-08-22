@@ -1,7 +1,4 @@
-/* ============================
-   GLOBAL PAGE WRAPPER
-   ============================ */
-   .products-page {
+.products-page {
     padding: 120px 60px 40px;
     background: #0d0d0f;
     color: #ffffff;
@@ -20,9 +17,7 @@
     }
   }
   
-  /* ============================
-     TACTICAL TOOLBAR
-     ============================ */
+  /* TOOLBAR */
   .products-toolbar {
     display: flex;
     justify-content: space-between;
@@ -100,9 +95,7 @@
     border-color: #3a3a3d;
   }
   
-  /* ============================
-     PRODUCT GRID
-     ============================ */
+  /* PRODUCT GRID */
   .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -110,9 +103,7 @@
     padding: 2rem 0;
   }
   
-/* ============================
-   PRODUCT CARD (TACTICAL)
-   ============================ */
+/* PRODUCT CARD */
 
    .product-card {
     background: linear-gradient(135deg, #141416 0%, #0f0f11 100%);
@@ -311,9 +302,7 @@
     color: #ffffff;
   }
   
-/* ============================
-   TACTICAL BUTTONS (TEXT-BASED)
-   ============================ */
+/* TACTICAL BUTTONS */
 
    .btn-cart,
    #modal-add-to-cart,
@@ -345,7 +334,7 @@
      box-shadow: 0 0 18px rgba(204, 0, 0, 0.45);
    }
    
-   /* View Product button (same style, different color scheme) */
+   /* View Product button */
    .btn-icon {
      background: #1a1a1d;
      color: #ffffff;
@@ -382,9 +371,7 @@
    }
    
   
-  /* ============================
-   PRODUCT MODAL (TACTICAL)
-   ============================ */
+  /* PRODUCT MODAL */
 
 .product-modal {
   background: #141416;
@@ -401,9 +388,7 @@
 }
 
   
-/* ============================
-   MODAL BACKDROP (FIXED OVERLAY)
-   ============================ */
+/* MODAL BACKDROP */
 
    .product-modal-backdrop {
     position: fixed;        /* ← THIS is the fix */
@@ -506,9 +491,7 @@
     color: #c7c7c7;
   }
   
-  /* ============================
-     MODAL TWO-COLUMN LAYOUT
-     ============================ */
+  /* TWO-COLUMN MODAL LAYOUT */
   .product-modal-body {
     display: grid;
     grid-template-columns: 260px 1fr;
@@ -516,9 +499,7 @@
     margin-bottom: 24px;
   }
   
- /* ============================
-   MODAL IMAGE FRAME
-   ============================ */
+ /* MODAL IMAGE FRAME */
 
 .modal-image-column {
   display: flex;
@@ -584,9 +565,7 @@
     background: #cc0000;
   }
   
-  /* ============================
-     RESPONSIVE
-     ============================ */
+  /* RESPONSIVE */
   @media (max-width: 1100px) {
     .products-grid {
       grid-template-columns: repeat(3, 1fr);

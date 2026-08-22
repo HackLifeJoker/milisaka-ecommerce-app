@@ -1,11 +1,9 @@
-// Shared UI utilities: ScrambleText, SlideToSubmit, money formatter.
-
 function formatMoney(n) {
   return '$' + Number(n).toLocaleString();
 }
 
 /* ---------------------------------------------------------
-   SCRAMBLE TEXT — cinematic, stable, no punctuation glitch
+   SCRAMBLE TEXT 
 --------------------------------------------------------- */
 
 function scrambleText(el, text, duration = 1800, startDelay = 200) {
@@ -54,9 +52,7 @@ function scrambleText(el, text, duration = 1800, startDelay = 200) {
   setTimeout(() => requestAnimationFrame(update), startDelay);
 }
 
-/* ---------------------------------------------------------
-   SLIDE TO SUBMIT
---------------------------------------------------------- */
+/* SLIDE TO SUBMIT */
 
 function initSlideToSubmit(trackEl, onSubmit, label = 'SLIDE TO SUBMIT') {
   let position = 0;
@@ -141,9 +137,7 @@ function initSlideToSubmit(trackEl, onSubmit, label = 'SLIDE TO SUBMIT') {
   });
 }
 
-/* ---------------------------------------------------------
-   PRODUCT CARD + CART WIRING
---------------------------------------------------------- */
+/* PRODUCT CARD + CART WIRING */
 
 function productCardHTML(p) {
   const id = p._id || p.id;

@@ -1,10 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Load Supabase keys from Vite environment
+
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-// Initialize Supabase client
+
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // DOM elements
@@ -23,7 +23,7 @@ const errorEl = document.getElementById('register-error');
   }
 })();
 
-// Email validation helper
+// Email validation 
 function isValidEmail(email) {
   return /\S+@\S+\.\S+/.test(email);
 }

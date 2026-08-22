@@ -5,25 +5,25 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// ===========================
+
 // GET CURRENT USER
-// ===========================
+
 export async function getCurrentUser() {
   const { data: { user } } = await supabase.auth.getUser();
   return user;
 }
 
-// ===========================
+
 // LOGOUT
-// ===========================
+
 export async function logout() {
   await supabase.auth.signOut();
   window.location.href = '/index.html';
 }
 
-// ===========================
-// POPULATE USER DRAWER
-// ===========================
+
+// USER DRAWER
+
 export async function applyNavbarSessionLogic() {
   const user = await getCurrentUser();
 
@@ -71,7 +71,7 @@ export async function applyNavbarSessionLogic() {
     </button>
   `;
 
-  // Bind logout button
+  
   const logoutBtn = document.getElementById('user-logout-btn');
   if (logoutBtn) logoutBtn.onclick = logout;
 }

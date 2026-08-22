@@ -1,7 +1,7 @@
 import './utils.js';
 
 
-/* global scrambleText, productCardHTML, wireAddToCartButtons, api */
+/*  scrambleText, productCardHTML, wireAddToCartButtons, api */
 
 // Home page logic.
 document.addEventListener('DOMContentLoaded', async () => {

@@ -1,5 +1,3 @@
-// Dark tactical products page logic
-
 import { addToCart as addToCartBackend } from './cart.js';
 
 const products = [
@@ -535,7 +533,6 @@ const products = [
     modalCategoryStockEl.textContent = `${product.category} • ${product.stockStatus}`;
     modalDescriptionEl.textContent = product.description;
   
-    // FIX: Load modal image
     modalImageEl.src = product.image;
     modalImageEl.alt = product.name;
   
