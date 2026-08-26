@@ -1,6 +1,6 @@
 import { addToCart as addToCartBackend } from './cart.js';
 
-const products = [
+let products = [
     {
       id: 'ciphercore',
       name: 'CY-Lock "CipherCore" Encryption Module',
@@ -346,24 +346,7 @@ const products = [
       }
     }
   ];
-  
-  const gridEl = document.getElementById('products-grid');
-  const categoryButtons = document.querySelectorAll('.category-filter');
-  const sortSelect = document.getElementById('sort-select');
-  
-  const modalBackdrop = document.getElementById('product-modal-backdrop');
-  const modalEl = document.getElementById('product-modal');
-  const modalCloseBtn = document.getElementById('product-modal-close');
-  const modalNameEl = document.getElementById('modal-name');
-  const modalSectorBadgeEl = document.getElementById('modal-sector-badge');
-  const modalCategoryStockEl = document.getElementById('modal-category-stock');
-  const modalDescriptionEl = document.getElementById('modal-description');
-  const modalDossierEl = document.getElementById('modal-dossier');
-  const modalSpecsEl = document.getElementById('modal-specs');
-  const modalImageEl = document.getElementById('modal-image');
-  const modalPriceEl = document.getElementById('modal-price');
-  const modalAddToCartBtn = document.getElementById('modal-add-to-cart');
-  
+
 
   let currentCategory = 'ALL';
   let currentSort = 'default';
@@ -449,8 +432,6 @@ const products = [
     return card;
   }
   
-  
-  
   function addToCart(product) {
     // Call backend cart system
     addToCartBackend(product);
@@ -487,7 +468,7 @@ const products = [
     renderProducts(filtered);
   }
   
-  function renderProducts(list) {
+  function renderProducts(list, gridEl) {
     gridEl.innerHTML = '';
     list.forEach(product => {
       const card = createProductCard(product);
@@ -580,12 +561,65 @@ const products = [
   }
   
   function initProductsPage() {
-    if (!gridEl) return;
-    initCategoryFilters();
-    initSortSelect();
-    initModalHandlers();
+
+  const gridEl = document.getElementById('products-grid');
+  const categoryButtons = document.querySelectorAll('.category-filter');
+  const sortSelect = document.getElementById('sort-select');
+  const params = new URLSearchParams(window.location.search);
+  const sectorParam = params.get("sector");
+  const categoryParam = params.get("category");
+  const modalBackdrop = document.getElementById('product-modal-backdrop');
+  const modalEl = document.getElementById('product-modal');
+  const modalCloseBtn = document.getElementById('product-modal-close');
+  const modalNameEl = document.getElementById('modal-name');
+  const modalSectorBadgeEl = document.getElementById('modal-sector-badge');
+  const modalCategoryStockEl = document.getElementById('modal-category-stock');
+  const modalDescriptionEl = document.getElementById('modal-description');
+  const modalDossierEl = document.getElementById('modal-dossier');
+  const modalSpecsEl = document.getElementById('modal-specs');
+  const modalImageEl = document.getElementById('modal-image');
+  const modalPriceEl = document.getElementById('modal-price');
+  const modalAddToCartBtn = document.getElementById('modal-add-to-cart');
+  
+  if (!gridEl) return;
+
+  // Apply sector/category filters FIRST
+  if (sectorParam || categoryParam) {
+    products = products.filter(product => {
+      const sector = product.sector ?? null;
+      const category = product.category ?? null;
+
+      if (sectorParam === "GOVERNMENT") {
+        return sector === "GOVERNMENT";
+      }
+
+      if (sectorParam === "ENTERPRISE") {
+        return sector === "ENTERPRISE";
+      }
+
+      if (sectorParam === "GOV_OR_NULL") {
+        return sector === "GOVERNMENT" || sector === null;
+      }
+
+      if (categoryParam === "INFRA") {
+        return category === "Servers" || category === "Cybersecurity Software";
+      }
+
+      return true;
+    });
+
+  
+    renderProducts(products, gridEl);
+  } else {
+  
     applyFiltersAndSort();
   }
+
+  initCategoryFilters();
+  initSortSelect();
+  initModalHandlers();
+}
+
   
   window.addEventListener('DOMContentLoaded', initProductsPage);
   

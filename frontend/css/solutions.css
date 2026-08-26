@@ -1,0 +1,222 @@
+.solutions-page {
+  background: #05060a;
+}
+
+.solutions-hero {
+  padding: 140px 20px;
+  text-align: center;
+  min-height: 360px;
+
+  background:
+    url("/frontend/assets/logo/Milisaka-Inc-logo-transparent.png")
+      center / 50% no-repeat,
+    radial-gradient(circle at center, rgba(255, 42, 42, 0.18), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.85));
+
+  background-blend-mode: overlay;
+}
+
+.solutions-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.solutions-hero h1 {
+  color: #ff2a2a;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.solutions-hero h2 {
+  font-size: 2.8rem;
+  margin: 15px 0;
+}
+
+.solutions-hero p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  opacity: 0.85;
+}
+.solutions-core h1,
+.solutions-sectors h1 {
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.solutions-core h2,
+.solutions-sectors h2 {
+  font-size: 2.6rem;
+  text-shadow: 0 0 12px rgba(255, 42, 42, 0.35);
+}
+
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  margin-top: 40px;
+}
+.solution-card {
+  background: #0c0c0c;
+  padding: 28px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 42, 42, 0.25);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 22px rgba(255, 42, 42, 0.25);
+}
+
+.solution-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 42, 42, 0.03) 0px,
+    rgba(255, 42, 42, 0.03) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  pointer-events: none;
+}
+
+
+.solution-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.solution-card p {
+  font-size: 1rem;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+.sector-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+.sector-card {
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #0c0c0c;
+  border: 1px solid rgba(255, 42, 42, 0.25);
+  border-radius: 10px;
+  padding: 2rem 1.75rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sector-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sector-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 22px rgba(255, 42, 42, 0.25);
+}
+
+
+.sector-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.sector-card p {
+  font-size: 1rem;
+  opacity: 0.85;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.sector-icon {
+  width: 100%;
+  max-width: 300px;  
+  height: auto;
+  margin-top: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: drop-shadow(0 0 10px rgba(255, 42, 42, 0.25));
+}
+
+
+.solutions-cta {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta-chip {
+  width: 64px;
+  height: auto;
+  margin: 0 auto 20px auto;
+  display: block;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 10px var(--accent));
+}
+
+.solutions-cta h2 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.solutions-cta p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+.deploy-buttons a {
+  box-shadow: 0 0 12px rgba(255, 42, 42, 0.25);
+}
+
+.deploy-buttons a:hover {
+  box-shadow: 0 0 18px rgba(255, 42, 42, 0.45);
+}
+
+.solutions-core,
+.solutions-sectors,
+.solutions-cta {
+  text-align: center;
+}
+
+.section-divider {
+  height: 2px;
+  width: 100%;
+  margin: 60px auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 42, 42, 0.6),
+    transparent
+  );
+  box-shadow: 0 0 12px rgba(255, 42, 42, 0.4);
+}

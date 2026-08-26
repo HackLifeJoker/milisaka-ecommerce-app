@@ -4,57 +4,180 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Milisaka, Inc.</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="/frontend/css/styles.css" />
+  <link rel="stylesheet" href="/frontend/css/about.css" />
 </head>
+
 <body>
-  <div id="navbar"></div>
-  <main class="main">
-    <section class="section section-card" style="position:relative;overflow:hidden">
-      <div class="tactical-grid" style="position:absolute;inset:0;opacity:0.5"></div>
-      <div class="container text-center" style="position:relative">
-        <span class="eyebrow">// COMPANY DOSSIER</span>
-        <h1 class="h1" style="margin-bottom:1.5rem">ABOUT MILISAKA</h1>
-        <p class="text-muted" style="font-size:1.125rem;max-width:42rem;margin:0 auto;line-height:1.6">A rising corporation providing software and electronics for military and corporate security — engineered for those who cannot afford failure.</p>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container" style="max-width:48rem">
-        <h2 class="h2" style="font-size:2rem;margin-bottom:1.5rem">WHO WE ARE</h2>
-        <p class="text-muted" style="font-size:1.125rem;line-height:1.7;margin-bottom:1rem">Milisaka, Inc. is a rising corporation that provides software and electronics for military and corporate security. Our products include durable computers, servers, and mission-ready workstations for tactical defense operations, as well as secure, performance-focused options for industrial applications.</p>
-        <p class="text-muted" style="font-size:1.125rem;line-height:1.7">While our main focus is on obtaining government military contracts, Milisaka also offers several options for individuals and private organizations to purchase enterprise-grade cybersecurity solutions. Customers can place orders or request quotes for contracts via the company website.</p>
-      </div>
-    </section>
-    <section class="section section-card">
-      <div class="container">
-        <span class="eyebrow">// COMMAND STRUCTURE</span>
-        <h2 class="h2" style="font-size:2rem;margin-bottom:3rem">LEADERSHIP</h2>
-        <div class="grid grid-2" id="leadership-grid"></div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">// CORE PRINCIPLES</span>
-        <h2 class="h2" style="font-size:2rem;margin-bottom:3rem">OUR VALUES</h2>
-        <div class="grid grid-3" id="values-grid"></div>
-      </div>
-    </section>
-    <section class="section section-card">
-      <div class="container text-center" style="max-width:48rem">
-        <h2 class="h2" style="font-size:2rem;margin-bottom:1.5rem">READY TO DEPLOY?</h2>
-        <p class="text-muted" style="margin-bottom:2rem">Explore our arsenal or contact our procurement team to discuss your mission requirements.</p>
-        <div class="flex flex-col gap-4" style="justify-content:center">
-          <a href="products.html" class="btn btn-primary chamfer-sm">VIEW PRODUCTS →</a>
-          <a href="contact.html" class="btn btn-outline chamfer-sm">CONTACT US</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="footer"></div>
-  <script type="module" src="js/api.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/layout.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/about.js"></script>
+  <main>
+<div class="scroll-menu">
+  <ul>
+    <li><a href="#about-hero">Company Dossier</a></li>
+    <li><a href="#about-mission">Mission</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#principles">Core Principles</a></li>
+    <li><a href="#deploy">Ready to Deploy</a></li>
+  </ul>
+</div>
+
+  <section id="about-hero" class="about-hero tactical-grid tactical-grid-animated">
+  <h1>// COMPANY DOSSIER</h1>
+  <h2>ABOUT MILISAKA</h2>
+  <p>A rising corporation engineered for those who cannot afford failure.</p>
+</section>
+
+<div class="section-divider"></div>
+
+  <section id="mission" class="about-mission">
+  <h2>OUR MISSION</h2>
+  <p>Milisaka, Inc. is the premier provider of rugged, elite-quality software and electronics for military and corporate security. Our products include durable computers, servers, and mission-ready workstations for tactical defense operations, as well as secure, performance-focused options for industrial applications. While our main focus is government military contracts, Milisaka offers enterprise-grade cybersecurity solutions for individuals and private organizations.</p>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="leadership" class="leadership">
+  <h1>// COMMAND STRUCTURE</h1>
+  <h2>LEADERSHIP</h2>
+
+  <div class="leadership-grid">
+
+    <div class="leader-card">
+      <img src="/frontend/assets/team/David-Martinez-CEO.jpeg" alt="David Martinez" />
+      <h3>David Martinez</h3>
+      <span class="role">Chief Executive Officer</span>
+      <p class="id-tag">ID: MK-CMD-001</p>
+      <p class="bio">As CEO, David Martinez drives Milisaka's strategic vision with unwavering focus and tactical business acumen — forging partnerships with defense agencies and corporate enterprises to deliver mission-critical technology where it matters most. </p>
+    </div>
+
+    <div class="leader-card">
+      <img src="/frontend/assets/team/Grayson-CIO.jpg" alt="Richard Grayson" />
+      <h3>Richard Grayson</h3>
+      <span class="role">Chief Information Officer</span>
+      <p class="id-tag">ID: MK-CMD-002</p>
+      <p class="bio">Richard Grayson brings a wealth of executive and technological experience to oversee Milisaka's technology infrastructure and cybersecurity architecture as CIO, ensuring every product meets the rigorous demands of defense and enterprise environments.</p>
+    </div>
+
+    <div class="leader-card">
+      <img src="/frontend/assets/team/Bulma-Briefs-CFO.jpg" alt="Bulma Briefs" />
+      <h3>Bulma Briefs</h3>
+      <span class="role">Chief Financial Officer</span>
+      <p class="id-tag">ID: MK-CMD-003</p>
+      <p class="bio">Bulma Briefs directs Milisaka's financial operations with sharp analytical discipline, structuring budgets, investments, and long-term strategy to keep every division supplied, scalable, and mission-ready.</p>
+    </div>
+
+ <div class="leader-card">
+      <img src="/frontend/assets/team/DVaughnte-ciso.png" alt="DVaughnte Sanders" />
+      <h3>DVaughnte Sanders</h3>
+      <p class="role">Chief Information Security Officer</p>
+      <span class="id-tag">ID: MK-CMD-004</span>
+      <p class="bio">DVaughnte Sanders shapes Milisaka's cybersecurity posture through proactive defense strategy, threat intelligence oversight, and enterprise-wide security enforcement designed to protect the corporation's most sensitive assets.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="team" class="team">
+  <h1>// PERSONNEL DOSSIER</h1>
+  <h2>MEET THE TEAM</h2>
+
+  <div class="team-grid">
+
+    <div class="team-card">
+      <img src="/frontend/assets/team/Lucy-Networking-lead.jpeg" alt="Lucy Kushinada" />
+      <h3>Lucy Kushinada</h3>
+      <p class="role">Network Administrator</p>
+      <span class="id-tag">ID: MK-OPS-105</span>
+      <p class="bio">Lucy Kushinada maintains the backbone of Milisaka's communications infrastructure, securing networks, optimizing performance, and ensuring uninterrupted connectivity across all operational environments.</p>
+    </div>
+
+    <div class="team-card">
+      <img src="/frontend/assets/team/Rebecca-data-management.jpg" alt="Rebecca Cazares" />
+      <h3>Rebecca Cazares</h3>
+      <p class="role">Senior Database Administrator</p>
+      <span class="id-tag">ID: MK-OPS-104</span>
+      <p class="bio">Rebecca Cazares safeguards Milisaka's data systems with meticulous precision, overseeing storage architecture, replication, and high-availability protocols that keep critical intelligence protected and accessible.</p>
+    </div>
+
+    <div class="team-card">
+      <img src="/frontend/assets/team/Tony-Stark-project-manager.jpg" alt="Anthony Stark" />
+      <h3>Anthony Stark</h3>
+      <p class="role">Head of IT</p>
+      <span class="id-tag">ID: MK-OPS-101</span>
+      <p class="bio">Anthony Stark leads Milisaka's internal technology operations, coordinating infrastructure upgrades, system deployments, and cross-departmental initiatives that keep the organization running at peak efficiency.</p>
+    </div>
+
+    <div class="team-card">
+      <img src="/frontend/assets/team/Kaiba-software-dev-team-leader.jpg" alt="Seto Kaiba" />
+      <h3>Seto Kaiba</h3>
+      <p class="role">Lead Software Developer</p>
+      <span class="id-tag">ID: MK-OPS-102</span>
+      <p class="bio">Seto Kaiba leads the software development team at Milisaka, driving innovation and technical excellence to deliver cutting-edge solutions that meet our customers' evolving needs.</p>
+    </div>
+
+    <div class="team-card">
+      <img src="/frontend/assets/team/Michiko-sales.png" alt="Michiko Malandro" />
+      <h3>Michiko Malandro</h3>
+      <p class="role">Head of Sales & Marketing</p>
+      <p class="bio">Michiko Malandro drives Milisaka's market presence and client engagement, securing strategic contracts and communicating the corporation's capabilities with clarity, impact, and mission-focused precision.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="principles" class="core-principles">
+  <h1>// CORE PRINCIPLES</h1>
+  <h2>OUR VALUES</h2>
+
+  <div class="principles-grid">
+
+    <div class="principle-card">
+      <img src="/frontend/assets/icons/crosshair-red.svg" alt="Resilient Precision Icon" />
+      <h3>Resilient Precision</h3>
+      <p>[Blurb]</p>
+    </div>
+
+    <div class="principle-card">
+      <img src="/frontend/assets/icons/mission-first.svg" alt="Mission First Icon" />
+      <h3>Mission First</h3>
+      <p>[Blurb]</p>
+    </div>
+
+    <div class="principle-card">
+      <img src="/frontend/assets/icons/shield-red.svg" alt="Zero-Doubt Security Icon" />
+      <h3>Zero-Doubt Security</h3>
+      <p>[Blurb]</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="deploy" class="ready-to-deploy">
+  <div class="chip-logo-section">
+    <img src="/frontend/assets/icons/chip-red.svg" alt="Milisaka Chip Logo" class="chip-logo" />
+  </div>
+
+  <h1>READY TO DEPLOY?</h1>
+  <p>Explore our arsenal or contact our procurement team to discuss your mission requirements.</p>
+
+  <div class="deploy-buttons">
+    <a href="/products.html" class="btn-red">VIEW PRODUCTS</a>
+    <a href="/contact.html" class="btn-dark">CONTACT US</a>
+  </div>
+</section>
+
+</main> 
+
+<script type="module" src="/frontend/js/utils.js"></script>
+<script type="module" src="/frontend/js/app.js"></script>
+<script type="module" src="/frontend/js/navbar.js"></script>
+<script type="module" src="/frontend/js/cart.js"></script>
+<script type="module" src="/frontend/js/session.js"></script>
+<script type="module" src="/frontend/js/about.js"></script>
 </body>
 </html>

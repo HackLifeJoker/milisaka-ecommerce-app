@@ -1,0 +1,449 @@
+/* GLOBAL PAGE BASE */
+
+body {
+  background-color: #0a0a0a;
+  color: #e5e5e5;
+  font-family: 'Rajdhani', 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding-top: 140px;  
+  position: relative;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Section spacing */
+section {
+  margin: 80px 0;
+}
+
+/* Dossier-style headers */
+section h1 {
+  color: #ff2a2a;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* HERO SECTION */
+
+.about-hero {
+  position: relative;
+  padding: 120px 20px;
+  min-height: 360px;
+
+  background:
+    url("http://localhost:5173/frontend/assets/logo/Milisaka-Inc-logo-transparent.png")
+      center / 65% no-repeat,
+
+    radial-gradient(circle at center, rgba(255, 42, 42, 0.18), transparent 60%),
+
+    linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.85));
+
+  background-blend-mode: overlay;
+  z-index: 1000;
+}
+
+
+.about-hero h1 {
+  color: #ff2a2a;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.about-hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-hero p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  opacity: 0.85;
+  text-align: center;
+}
+
+/* MISSION SECTION */
+
+.about-mission {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* LEADERSHIP GRID (1x3) */
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* MILITARY PERSONNEL FILE STYLES*/
+
+.leader-card,
+.team-card {
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(255, 42, 42, 0.35);
+  padding: 25px;
+  border-radius: 6px;
+  border-left: 4px solid #ff2a2a;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.leader-card:hover,
+.team-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff2a2a;
+}
+
+/* Top-left classification tag */
+.leader-card::before {
+  content: "CLASSIFIED // LEVEL BLACK";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 42, 42, 0.75);
+  font-weight: 700;
+}
+
+.team-card::before {
+  content: "CLASSIFIED // LEVEL RED";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 42, 42, 0.75);
+  font-weight: 700;
+}
+
+/* Subtle diagonal scanlines */
+.leader-card::after,
+.team-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 42, 42, 0.05) 0px,
+    rgba(255, 42, 42, 0.05) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  pointer-events: none;
+}
+
+/* Photo styling */
+.leader-card img,
+.team-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 42, 42, 0.25);
+  margin-bottom: 15px;
+}
+
+/* Name */
+.leader-card h3,
+.team-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+/* Role */
+.leader-card .role,
+.team-card .role {
+  color: #ff2a2a;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+}
+
+/* Bio */
+.leader-card .bio,
+.team-card .bio {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.4;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+/* ID Tag */
+.leader-card .id-tag,
+.team-card .id-tag {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.08em;
+}
+
+
+/* TEAM GRID (2x3) */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+
+/* CORE PRINCIPLES */
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+section h1,
+section h2 {
+  text-align: center;
+}
+
+.principle-card {
+  background: #111;
+  padding: 25px;
+  border: 1px solid #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.principle-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff2a2a;
+}
+
+.principle-card img {
+  width: 70px;
+  margin-bottom: 15px;
+}
+
+.principle-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.principle-card p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* CHIP LOGO*/
+
+.chip-logo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0 10px;
+}
+
+.chip-logo {
+  width: 90px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 8px rgba(255, 42, 42, 0.5));
+  animation: chipPulse 3s ease-in-out infinite;
+}
+@keyframes chipPulse {
+  0% { filter: drop-shadow(0 0 6px rgba(255, 42, 42, 0.4)); }
+  50% { filter: drop-shadow(0 0 12px rgba(255, 42, 42, 0.7)); }
+  100% { filter: drop-shadow(0 0 6px rgba(255, 42, 42, 0.4)); }
+}
+
+/* READY TO DEPLOY */
+
+.ready-to-deploy {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.ready-to-deploy h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.ready-to-deploy p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.deploy-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-red,
+.btn-dark {
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-red {
+  background: #ff2a2a;
+  color: #fff;
+}
+
+.btn-red:hover {
+  background: #ff1a1a;
+  transform: translateY(-3px);
+}
+
+.btn-dark {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.btn-dark:hover {
+  background: #222;
+  transform: translateY(-3px);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1100px) {
+  .leadership-grid,
+  .team-grid,
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .leadership-grid,
+  .team-grid,
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* POP-OUT SCROLL SPY MENU */
+.scroll-menu {
+  position: fixed;
+  top: 140px;
+  left: 0;
+  width: 220px;
+  transform: translateX(-180px);
+  transition: transform 0.3s ease;
+  background: rgba(10, 10, 10, 0.9);
+  border-right: 2px solid #ff2a2a;
+  padding: 20px;
+  z-index: 1500;
+}
+
+.scroll-menu:hover {
+  transform: translateX(0);
+}
+
+.scroll-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-menu a {
+  display: block;
+  padding: 10px 0;
+  color: #ccc;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.scroll-menu a:hover {
+  color: #ff2a2a;
+}
+
+.scroll-menu a.active {
+  color: #ff2a2a;
+}
+
+
+
+main {
+  position: relative !important;
+  z-index: 999 !important;
+}
+
+.about-hero,
+.about-mission,
+.leadership,
+.team,
+.core-principles,
+.ready-to-deploy {
+  position: relative;
+  z-index: 999;
+}
+.section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 42, 42, 0.6),
+    transparent
+  );
+  margin: 60px 0;
+  opacity: 0.7;
+}
+.card-bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ff2a2a;
+  opacity: 0.7;
+}
+
+

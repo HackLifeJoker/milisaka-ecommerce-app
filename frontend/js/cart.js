@@ -138,19 +138,19 @@ async function renderCartDrawer() {
 }
 
 async function renderCartPage() {
-  console.log('[cart] renderCartPage called');   // ← ADD THIS
+  console.log('[cart] renderCartPage called');  
 
   const pageItemsEl = document.getElementById('cart-items-page');
   const subtotalEl = document.getElementById('summary-subtotal');
   const totalEl = document.getElementById('summary-total');
 
   if (!pageItemsEl || !subtotalEl || !totalEl) {
-    console.log('[cart] missing elements:', { pageItemsEl, subtotalEl, totalEl });  // ← ADD THIS
+    console.log('[cart] missing elements:', { pageItemsEl, subtotalEl, totalEl }); 
     return;
   }
 
   const backendCart = await fetchCartFromBackend();
-  console.log('[cart] backendCart on cart page:', backendCart);   // ← ADD THIS
+  console.log('[cart] backendCart on cart page:', backendCart); 
 
   pageItemsEl.innerHTML = '';
 
