@@ -49,21 +49,30 @@
    button {
      font-family: inherit;
    }
-/* TACTICAL GRID SYSTEM */
+/* TACTICAL GRID */
 
 .tactical-grid {
   position: relative;
-  z-index: 0;
+}
+
+.tactical-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1; 
+  pointer-events: none;
 
   background:
-    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 40px 40px;
+
+  opacity: 0.5; 
 }
- 
-  .tactical-grid-animated {
-    animation: gridDrift 18s linear infinite;
-  }
+
+.tactical-grid-animated::before {
+  animation: gridDrift 18s linear infinite;
+}
   
   @keyframes gridDrift {
     0% { background-position: 0 0, 0 0; }
@@ -416,14 +425,21 @@ header {
 }
 
 .stat-box {
-  background: var(--bg-alt);
+  background: transparent;
   border: 1px solid var(--border);
   padding: 1rem;
   border-radius: var(--radius-md);
   text-align: center;
   font-weight: 600;
   color: var(--accent);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
+
+.stat-box:hover {
+  background: var(--bg-alt);
+  box-shadow: 0 0 25px rgba(255, 59, 59, 0.15);
+}
+
 /* SECTORS SERVED */
 
 .sectors-section {
@@ -462,6 +478,8 @@ header {
 .sector-icon {
   width: 72px;
   height: 72px;
+  display: block;
+  opacity: 1;
   margin-bottom: 1.5rem;
   filter: drop-shadow(0 0 10px var(--accent));
 }
@@ -511,18 +529,16 @@ header {
 }
 
 .product-card {
-  background: var(--bg-alt);
+  background: transparent;
   border: 1px solid var(--border);
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  text-align: center;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
+  background: var(--bg-alt);
   box-shadow: 0 0 18px rgba(255, 59, 59, 0.25);
 }
+
 
 .product-card img {
   width: 100%;
@@ -561,7 +577,9 @@ header {
 }
 
 .deploy-icon {
-  position: fixed, center;
+  position: relative;
+  display: block;
+  margin: 0 auto;
   width: 48px;
   margin-bottom: 1rem;
 }
@@ -735,10 +753,11 @@ section {
   pointer-events: none;
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255, 0, 0, 0.05),
-    rgba(255, 0, 0, 0.05) 2px,
-    transparent 2px,
+    rgba(255, 0, 0, 0.035),
+    rgba(255, 0, 0, 0.035) 2px,
     transparent 4px
+    transparent 4px
+    opacity 0.5
   );
   animation: scanlineMove 6s linear infinite;
   z-index: -1 !important;

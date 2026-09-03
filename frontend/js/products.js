@@ -1,5 +1,25 @@
 import { addToCart as addToCartBackend } from './cart.js';
 
+let gridEl;
+let categoryButtons;
+let sortSelect;
+let params;
+let sectorParam;
+let categoryParam;
+
+let modalBackdrop;
+let modalEl;
+let modalCloseBtn;
+let modalNameEl;
+let modalSectorBadgeEl;
+let modalCategoryStockEl;
+let modalDescriptionEl;
+let modalDossierEl;
+let modalSpecsEl;
+let modalImageEl;
+let modalPriceEl;
+let modalAddToCartBtn;
+
 let products = [
     {
       id: 'ciphercore',
@@ -468,13 +488,14 @@ let products = [
     renderProducts(filtered);
   }
   
-  function renderProducts(list, gridEl) {
-    gridEl.innerHTML = '';
-    list.forEach(product => {
-      const card = createProductCard(product);
-      gridEl.appendChild(card);
-    });
-  }
+  function renderProducts(list) {
+  gridEl.innerHTML = '';
+  list.forEach(product => {
+    const card = createProductCard(product);
+    gridEl.appendChild(card);
+  });
+}
+
   
   function renderDossierSections(dossier) {
     modalDossierEl.innerHTML = '';
@@ -562,24 +583,24 @@ let products = [
   
   function initProductsPage() {
 
-  const gridEl = document.getElementById('products-grid');
-  const categoryButtons = document.querySelectorAll('.category-filter');
-  const sortSelect = document.getElementById('sort-select');
-  const params = new URLSearchParams(window.location.search);
-  const sectorParam = params.get("sector");
-  const categoryParam = params.get("category");
-  const modalBackdrop = document.getElementById('product-modal-backdrop');
-  const modalEl = document.getElementById('product-modal');
-  const modalCloseBtn = document.getElementById('product-modal-close');
-  const modalNameEl = document.getElementById('modal-name');
-  const modalSectorBadgeEl = document.getElementById('modal-sector-badge');
-  const modalCategoryStockEl = document.getElementById('modal-category-stock');
-  const modalDescriptionEl = document.getElementById('modal-description');
-  const modalDossierEl = document.getElementById('modal-dossier');
-  const modalSpecsEl = document.getElementById('modal-specs');
-  const modalImageEl = document.getElementById('modal-image');
-  const modalPriceEl = document.getElementById('modal-price');
-  const modalAddToCartBtn = document.getElementById('modal-add-to-cart');
+  gridEl = document.getElementById('products-grid');
+  categoryButtons = document.querySelectorAll('.category-filter');
+  sortSelect = document.getElementById('sort-select');
+  params = new URLSearchParams(window.location.search);
+  sectorParam = params.get("sector");
+  categoryParam = params.get("category");
+  modalBackdrop = document.getElementById('product-modal-backdrop');
+  modalEl = document.getElementById('product-modal');
+  modalCloseBtn = document.getElementById('product-modal-close');
+  modalNameEl = document.getElementById('modal-name');
+  modalSectorBadgeEl = document.getElementById('modal-sector-badge');
+  modalCategoryStockEl = document.getElementById('modal-category-stock');
+  modalDescriptionEl = document.getElementById('modal-description');
+  modalDossierEl = document.getElementById('modal-dossier');
+  modalSpecsEl = document.getElementById('modal-specs');
+  modalImageEl = document.getElementById('modal-image');
+  modalPriceEl = document.getElementById('modal-price');
+  modalAddToCartBtn = document.getElementById('modal-add-to-cart');
   
   if (!gridEl) return;
 
@@ -609,7 +630,7 @@ let products = [
     });
 
   
-    renderProducts(products, gridEl);
+    renderProducts(products);
   } else {
   
     applyFiltersAndSort();

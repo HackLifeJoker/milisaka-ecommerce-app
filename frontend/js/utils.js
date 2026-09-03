@@ -6,15 +6,11 @@ function formatMoney(n) {
    SCRAMBLE TEXT 
 --------------------------------------------------------- */
 
-function scrambleText(el, text, duration = 1800, startDelay = 200) {
-  if (!el) return;
-  if (!text) text = el.textContent || ""; // fallback safety
-
+export function scrambleText(el, text, duration = 1800, startDelay = 200) {
   const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  const totalFrames = Math.round(duration / 16); // ~60fps
+  const totalFrames = Math.round(duration / 16);
   let frame = 0;
 
-  // Build per-character animation queue
   const queue = text.split('').map((char) => {
     const start = Math.floor(Math.random() * (totalFrames * 0.4));
     const end = start + Math.floor(totalFrames * 0.4) + 5;
@@ -30,7 +26,7 @@ function scrambleText(el, text, duration = 1800, startDelay = 200) {
 
       if (frame >= end) {
         complete++;
-        output += char; // final correct character
+        output += char;
       } else if (frame >= start) {
         output += CHARS[Math.floor(Math.random() * CHARS.length)];
       } else {
@@ -41,7 +37,7 @@ function scrambleText(el, text, duration = 1800, startDelay = 200) {
     el.textContent = output;
 
     if (complete === queue.length) {
-      el.textContent = text; // hard-set final text
+      el.textContent = text;
       return;
     }
 
@@ -51,6 +47,8 @@ function scrambleText(el, text, duration = 1800, startDelay = 200) {
 
   setTimeout(() => requestAnimationFrame(update), startDelay);
 }
+
+
 
 /* SLIDE TO SUBMIT */
 
