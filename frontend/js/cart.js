@@ -237,3 +237,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   await renderCartPage();
   await updateCartBubble();
 });
+
+export { renderCartDrawer, renderCartPage, updateCartBubble, fetchCartFromBackend };

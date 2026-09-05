@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Milisaka, Inc.</title>
+
+  <link rel="stylesheet" href="/frontend/css/styles.css" />
+  <link rel="stylesheet" href="/frontend/css/checkout.css" />
+</head>
+
+<body>
+    <div id="page-wrapper">
+<section id="checkout-page" class="checkout-page">
+    <h1 class="checkout-title">
+        Requisition Manifest <span class="subtitle">(Cart Summary)</span>
+    </h1>
+
+    <div id="checkout-cart-items" class="checkout-items"></div>
+
+    <div class="checkout-total-line">
+    Total:&nbsp;<span id="checkout-total-amount"></span>
+</div>
+
+
+    <div class="checkout-actions">
+        <button id="checkout-confirm-btn" class="btn primary hidden">
+            Authorize Deployment <span>(Confirm Order)</span>
+        </button>
+
+        <button id="checkout-guest-btn" class="btn secondary hidden">
+            Guest Deployment <span>(No Account)</span>
+        </button>
+    </div>
+
+    <div id="checkout-message" class="checkout-message hidden">
+        
+    </div>
+</section>
+</div>
+
+<script type="module" src="/frontend/js/app.js"></script>
+<script type="module" src="/frontend/js/navbar.js"></script>
+<script type="module" src="/frontend/js/session.js"></script>
+<script type="module" src="/frontend/js/cart.js"></script>
+<script type="module" src="/frontend/js/checkout.js"></script>
+
+</body> 

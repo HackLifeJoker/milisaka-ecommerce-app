@@ -15,6 +15,6 @@ router.post('/update', cartController.updateItem);
 router.post('/remove', cartController.removeItem);
 
 // Clear cart
-router.delete('/clear', cartController.clearCart);
+router.post('/clear', cartController.clearCart);
 
 module.exports = router;

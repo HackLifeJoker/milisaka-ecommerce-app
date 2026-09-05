@@ -3,27 +3,21 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // GET CURRENT USER
-
 export async function getCurrentUser() {
   const { data: { user } } = await supabase.auth.getUser();
   return user;
 }
 
-
 // LOGOUT
-
 export async function logout() {
   await supabase.auth.signOut();
   window.location.href = '/index.html';
 }
 
-
 // USER DRAWER
-
 export async function applyNavbarSessionLogic() {
   const user = await getCurrentUser();
 
@@ -32,7 +26,6 @@ export async function applyNavbarSessionLogic() {
 
   if (!userDrawerBody || !userIcon) return;
 
-  // USER NOT LOGGED IN
   if (!user) {
     userDrawerBody.innerHTML = `
       <p class="user-welcome">Welcome, Operator.</p>
@@ -48,7 +41,6 @@ export async function applyNavbarSessionLogic() {
     return;
   }
 
-  // USER LOGGED IN
   const username = user.user_metadata?.username || user.email;
 
   userDrawerBody.innerHTML = `
@@ -71,10 +63,10 @@ export async function applyNavbarSessionLogic() {
     </button>
   `;
 
-  
   const logoutBtn = document.getElementById('user-logout-btn');
   if (logoutBtn) logoutBtn.onclick = logout;
 }
-document.addEventListener("DOMContentLoaded", () => {
+
+document.addEventListener('DOMContentLoaded', () => {
   setTimeout(applyNavbarSessionLogic, 200);
 });
