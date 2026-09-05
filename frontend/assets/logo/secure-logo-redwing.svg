@@ -1,0 +1,37 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield Outline -->
+  <path d="M90 10 L150 40 L150 110 L90 170 L30 110 L30 40 Z"
+        fill="none"
+        stroke="#ff3b3b"
+        stroke-width="4"
+        stroke-linejoin="round" />
+
+  <!-- Eagle Head -->
+  <path d="M60 70 Q90 30 120 70 Q100 65 90 75 Q80 65 60 70 Z"
+        fill="#0a0a0a"
+        stroke="#ff3b3b"
+        stroke-width="3"
+        stroke-linejoin="round" />
+
+  <!-- Eye Glow -->
+  <circle cx="102" cy="63" r="6" fill="#ff3b3b">
+    <animate attributeName="opacity"
+             values="1;0.4;1"
+             dur="1.6s"
+             repeatCount="indefinite" />
+  </circle>
+
+  <!-- Scanline Overlay -->
+  <defs>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="rgba(255,0,0,0.15)" />
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="180" height="180" fill="url(#scanlines)" opacity="0.25" />
+
+  <!-- Glitch Flicker -->
+  <animate attributeName="opacity"
+           values="1;0.95;1;0.9;1"
+           dur="0.8s"
+           repeatCount="indefinite" />
+</svg>

@@ -1,4 +1,79 @@
-<section class="profile-page">
-    <h1>Your Profile</h1>
-    <p>User account features coming soon.</p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milikasa Secure Commerce Node — Account</title>
+
+  <link rel="stylesheet" href="/frontend/css/styles.css" />
+  <link rel="stylesheet" href="/frontend/css/account.css" />
+</head>
+
+<body class="terminal-mode">
+
+  <div class="classified-flash">CLASSIFIED ACCESS</div>
+
+  <!-- Background Grid + Scanlines -->
+  <div class="terminal-bg"></div>
+  <div class="scanlines"></div>
+  <div class="terminal-glow"></div>
+
+
+  <!-- Terminal Container -->
+  <div class="terminal-wrapper terminal-boot">
+     <div class="data-stream"></div>
+     
+     <div class="secure-logo-container">
+     <div class="classified-watermark">CLASSIFIED</div>
+     <div class="secure-logo-wrapper">
+    <img src="/frontend/assets/logo/Milisaka-Inc-logo-transparent.png" alt="Milikasa Secure Logo">
+    <div class="secure-badge">SECURE ACCESS</div>
+  </div>
+</div>
+
+
+    <!-- Terminal Header -->
+    <h1 class="terminal-title">MILISAKA SECURE COMMERCE NODE</h1>
+    <p class="terminal-subtitle">ACCOUNT ACCESS — LEVEL: CIVILIAN</p>
+
+    <!-- Account Panel -->
+    <div class="terminal-panel panel-hidden" id="profile-panel">
+      <h2 class="panel-title">
+        USER PROFILE <span class="panel-subtitle">(PERSONNEL FILE)</span>
+      </h2>
+
+      <div class="profile-section">
+        <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
+        <p><strong>Display Name:</strong> <span id="profile-name">Loading...</span></p>
+        <p><strong>Phone:</strong> <span id="profile-phone">Loading...</span></p>
+        <p><strong>Address:</strong> <span id="profile-address">Loading...</span></p>
+        <p><strong>Joined:</strong> <span id="profile-created">Loading...</span></p>
+      </div>
+
+      <button id="edit-profile-btn" class="panel-btn primary">EDIT PROFILE</button>
+      <button id="logout-btn" class="panel-btn secondary">LOG OUT</button>
+    </div>
+
+    <!-- Orders Panel -->
+    <div class="terminal-panel panel-hidden" id="orders-panel">
+      <h2 class="panel-title">
+        SUPPLY REQUEST LOGS <span class="panel-subtitle">(ORDER HISTORY)</span>
+      </h2>
+
+      <div id="orders-list" class="orders-section">
+        <p class="placeholder">No orders found.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="/frontend/js/app.js"></script>
+  <script type="module" src="/frontend/js/navbar.js"></script>
+  <script type="module" src="/frontend/js/account.js"></script>
+
+  <div class="node-status-bar">
+  NODE STATUS: ONLINE — MILISAKA SECURE COMMERCE NODE
+</div>
+
+</body>
+</html>

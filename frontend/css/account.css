@@ -1,0 +1,445 @@
+/* ============================================================
+   TERMINAL MODE OVERRIDES
+   ============================================================ */
+
+.terminal-mode {
+  background: #0a0a0a !important; /* deep tactical black */
+  color: #fff !important;
+  font-family: "Consolas", monospace !important;
+}
+
+
+body.terminal-mode {
+  background: #0a0a0a !important;   
+  box-shadow: inset 0 0 40px rgba(40, 1, 1, 0.162);
+
+}
+
+
+.terminal-mode .site-header,
+.terminal-mode .site-footer {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+.terminal-mode * {
+  box-shadow: none !important;
+}
+
+/* Secure Logo */
+.terminal-mode .secure-logo-container img {
+  width: 260px !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* ============================================================
+   TERMINAL BACKGROUND
+   ============================================================ */
+
+.terminal-bg {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 0, 0, 0.05) 0px,
+    rgba(255, 0, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 20px
+  );
+  z-index: -3;
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0px,
+    rgba(66, 2, 2, 0.416) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  z-index: -2;
+}
+
+/* Animated Terminal Glow */
+.terminal-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(255,0,0,0.08) 0%,
+    rgba(255,0,0,0.02) 40%,
+    rgba(0,0,0,0) 70%
+  );
+  animation: glowPulse 4s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.4; }
+}
+
+
+/* ============================================================
+   TERMINAL WRAPPER
+   ============================================================ */
+
+.terminal-mode .terminal-wrapper {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 40px 20px !important;
+  position: relative;
+  z-index: 0;
+}
+
+/* ============================================================
+   TITLES
+   ============================================================ */
+
+.terminal-title {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #ff3b3b;
+}
+
+.terminal-subtitle {
+  text-align: center;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+/* ============================================================
+   PANELS
+   ============================================================ */
+
+.terminal-mode .terminal-panel {
+  background: rgba(0,0,0,0.75) !important;
+  border: 2px solid #ff3b3b !important;
+  padding: 20px !important;
+  margin-bottom: 25px !important;
+  border-radius: 6px !important;
+  opacity: 0;
+  position: relative;
+  z-index: 2 !important;
+  transform: translateY(-20px);
+}
+
+/* Slide-down reveal */
+.panel-visible {
+  animation: panelSlideDown 0.4s ease-out forwards;
+}
+
+@keyframes panelSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   PANEL TITLES
+   ============================================================ */
+
+.panel-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #ff3b3b;
+}
+
+.panel-subtitle {
+  font-size: 14px;
+  margin-left: 8px;
+  color: #ffb3b3;
+}
+
+/* ============================================================
+   PROFILE SECTION
+   ============================================================ */
+
+.profile-section p {
+  margin: 6px 0;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.panel-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  margin-right: 10px;
+  margin-top: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.panel-btn.primary {
+  background: #ff3b3b;
+  color: #fff;
+}
+
+.panel-btn.secondary {
+  background: #333;
+  color: #fff;
+}
+
+.panel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255,0,0,0.4);
+}
+/* ============================================================
+   ORDERS
+   ============================================================ */
+
+.orders-section {
+  margin-top: 10px;
+}
+
+.order-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border: 1px solid #ff3b3b;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.placeholder {
+  opacity: 0.7;
+}
+
+/* ============================================================
+   SECURE LOGO CONTAINER
+   ============================================================ */
+
+.secure-logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: secureFade 0.6s ease-out forwards;
+}
+
+.secure-tag {
+  font-family: "Consolas", monospace;
+  font-size: 12px;
+  color: #ff3b3b;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+@keyframes secureFade {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.secure-logo-container img {
+  filter: contrast(1.2) brightness(0.9);
+  position: relative;
+}
+
+/* Logo Wrapper (fixes overlay sizing) */
+.secure-logo-wrapper {
+  position: relative;
+  width: 260px;   /* match your logo size */
+  height: 260px;  /* match your logo size */
+  margin: 0 auto;
+  box-shadow: 0 0 25px rgba(255,0,0,0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Logo Scan Overlay */
+.secure-logo-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 138px;
+  left: 50%;
+  width: 65%;
+  height: 25%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(126, 1, 1, 0.441) 25%,
+    transparent 80%
+  );
+  animation: logoScan 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes logoScan {
+  0% { transform: translate(-50%, -235%); }
+  100% { transform: translate(-50%, 40%); }
+}
+
+/* Terminal Boot-Up */
+.terminal-boot {
+  opacity: 0;
+  animation: bootSequence 1.2s ease-out forwards;
+}
+
+@keyframes bootSequence {
+  0% { opacity: 0; filter: blur(6px); }
+  40% { opacity: 0.3; filter: blur(3px); }
+  70% { opacity: 0.7; filter: blur(1px); }
+  100% { opacity: 1; filter: blur(0); }
+}
+/* Classified Access Flash */
+.classified-flash {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Consolas", monospace;
+  font-size: 28px;
+  color: #fff;
+  letter-spacing: 2px;
+  z-index: 9999;
+  animation: classifiedFlashAnim 2s ease-out forwards;
+}
+
+@keyframes classifiedFlashAnim {
+  0% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* Secure Badge */
+.secure-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff3b3b;
+  color: #0a0a0a;
+  font-family: "Consolas", monospace;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  box-shadow: 0 0 6px rgba(255,0,0,0.4);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0% { box-shadow: 0 0 4px rgba(255,0,0,0.3); }
+  50% { box-shadow: 0 0 10px rgba(255,0,0,0.6); }
+  100% { box-shadow: 0 0 4px rgba(255,0,0,0.3); }
+}
+
+.terminal-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255,0,0,0.15),
+    rgba(255,0,0,0.05),
+    rgba(255,0,0,0.15)
+  );
+  opacity: 0.2;
+  animation: panelGlow 4s linear infinite;
+}
+
+@keyframes panelGlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.data-stream {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(122, 70, 70, 0.169) 0px,
+    rgba(255,0,0,0.05) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  opacity: 0.25;
+  animation: dataStreamAnim 6s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes dataStreamAnim {
+  0% { transform: translateY(-20px); }
+  100% { transform: translateY(20px); }
+}
+
+.node-status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 6px 12px;
+  background: rgba(255,0,0,0.1);
+  color: #ff3b3b;
+  font-family: "Consolas", monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+  border-top: 1px solid rgba(255,0,0,0.3);
+  backdrop-filter: blur(4px);
+}
+
+/* Correct stacking order */
+.classified-watermark {
+  z-index: 0 !important;
+}
+
+.data-stream {
+  z-index: 1 !important;
+}
+
+.secure-logo-container,
+.secure-logo-wrapper {
+  position: relative;
+  z-index: 2 !important;
+}
+
+.terminal-panel {
+  position: relative;
+  z-index: 3 !important;
+}
+.secure-logo-container {
+  position: relative;
+  z-index: 2;
+}
+
+.secure-logo-wrapper {
+  position: relative;
+  z-index: 3;
+}
+
+.classified-watermark {
+  position: absolute;
+  top: 90%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  font-family: "Consolas", monospace;
+  font-size: 70px;
+  color: rgba(255, 0, 0, 0.057);
+  letter-spacing: 6px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1; /* behind logo wrapper */
+}
